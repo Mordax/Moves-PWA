@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom'
 import "./MainContainer.css"
 import Header from '../Header/Header.js';
 import CellContainer from '../CellContainter/CellContainer.js';
@@ -11,10 +12,13 @@ class MainContainer extends React.Component {
         return (
             <div>        
                 <Header/>
-
                 <Menubar/>
 
-                <CellContainer content={Content}/>
+                <Switch>
+                    <Route exact path = '/' render = { () => (
+                        <CellContainer content={Content}/>
+      			    ) }/>
+                </Switch>
 
                 <Footer/>  
             </div>

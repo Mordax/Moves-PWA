@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-
+import { BrowserRouter } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 import MainContainer from './MainContainer/MainContainer.js';
 
 ReactDOM.render(
-    <MainContainer/>
+    <BrowserRouter>
+        <MainContainer/>
+    </BrowserRouter>
+    
     , document.getElementById('root')
 );
 

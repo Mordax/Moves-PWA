@@ -35,11 +35,11 @@ class MenuBar extends React.Component {
                 <hr />
 
                 <ul id="mobile-menu">
-                    <li><a href="#">option</a></li>
-                    <li><a href="#">option</a></li>
-                    <li><a href="#">option</a></li>
-                    <li><a href="#">option</a></li>
-                    <li><a href="#">option</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Need help?</a></li>
+                    <li><a href="#">Futher information</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
 
                 <ul id="language-menu">
