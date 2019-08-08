@@ -16,8 +16,8 @@ class Cell extends React.Component {
 
     render(){
         return (
-            <div>
-                <div className="square">
+            
+                
                     <a href="#" className="content">
                         <div className="circle">
                             <img src={this.state.icon} alt="" />
@@ -28,8 +28,8 @@ class Cell extends React.Component {
                             </h3>
                         </div>
                     </a>
-                </div>
-            </div>
+                
+            
         )
     }
 }

@@ -31,3 +31,7 @@ header img {
   justify-content: space-around;
   align-items: center;
 }
+
+hr {
+  margin: 0;
+}
