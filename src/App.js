@@ -2,6 +2,10 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// import GenericContent from './GenericContent';
+// import content from './config/content.json';
+
+
 function App() {
   return (
     <div className="App">
@@ -10,14 +14,21 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        
+        {/* <ul>
+          {
+            content.map((value, index) => {
+              <!--  TODO: edit this part to match Vidas's final wireframe 
+              value.name & value.fullName  :  will give the text under the icon
+              value.icon  :  will give the url to the icon image
+
+              value.name, value.title, value.content will be used in the component
+              to populate the content
+              -->
+              return <li id={index}><GenericContent params={value}/></li>
+            })
+          }
+        </ul> */}
       </header>
     </div>
   );
