@@ -1,0 +1,15 @@
+footer {
+    text-align: center;
+    background-color: #3f3c3c;
+    color: white;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+  }
+  
+  footer h2 {
+    margin-top: 0;
+  }
+  
+  footer p {
+    margin-bottom: 0;
+  }
