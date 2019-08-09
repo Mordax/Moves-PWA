@@ -1,18 +1,42 @@
 [
     {
-      "order": 1,
-      "name": "thief",
-      "fullName": "Thief and crime",
-      "title": "Thiefing and crime information",
-      "icon": "/images/libra.png",
-      "content": "/api/content/thief"
+    	"order": 0,
+    	"name": "thief",
+    	"fullName": "Laws and traditions",
+      	"title": "Thiefing and crime information",
+      	"icon": "./images/libra.png",
+      	"content": "/api/content/thief"
     },
     {
-      "order": 2,
-      "name": "importantPlace",
-      "fullName": "Important places",
-      "title": "Thiefing and crime information",
-      "icon": "/images/libra.png",
-      "content": "/api/content/thief"
-    }
+      	"order": 1,
+      	"name": "importantPlace",
+      	"fullName": "Important locations",
+      	"title": "Thiefing and crime information",
+      	"icon": "./images/map-location.png",
+      	"content": "/api/content/thief"
+	},
+	{
+		"order": 2,
+		"name": "importantPlace",
+		"fullName": "Theft cases",
+		"title": "Thiefing and crime information",
+		"icon": "/images/thief.png",
+		"content": "/api/content/thief"
+	},
+  	{
+		"order": 3,
+		"name": "importantPlace",
+		"fullName": "Medical needs",
+		"title": "Thiefing and crime information",
+		"icon": "/images/libra.png",
+		"content": "/api/content/thief"
+	},
+	{
+		"order": 4,
+		"name": "importantPlace",
+		"fullName": "Language barriers",
+		"title": "Thiefing and crime information",
+		"icon": "/images/libra.png",
+		"content": "/api/content/thief"
+	}
 ]

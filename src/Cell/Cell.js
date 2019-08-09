@@ -16,20 +16,16 @@ class Cell extends React.Component {
 
     render(){
         return (
-            
-                
-                    <a href="#" className="content">
-                        <div className="circle">
-                            <img src={this.state.icon} alt="" />
-                        </div>
-                        <div className="grid-item-text-box">
-                            <h3>
-                                {this.state.fullName}
-                            </h3>
-                        </div>
-                    </a>
-                
-            
+            <a href="#" className="content">
+                <div className="circle">
+                    <img src={this.state.icon} alt="" />
+                </div>
+                <div className="grid-item-text-box">
+                    <h3>
+                        {this.state.fullName}
+                    </h3>
+                </div>
+            </a>
         )
     }
 }

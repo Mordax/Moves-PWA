@@ -14,15 +14,13 @@ class CellContainer extends React.Component {
     render(){
         return (
             <div className="cell-container">
-                
-                    {this.state.content.map((value, index) => {
-                        return (
-                            <div className="square">
-                                <Cell params = {value}/>
-                            </div>
-                        )
-                    })}
-                
+                {this.state.content.map((value, index) => {
+                    return (
+                        <div key={index} className="square">
+                            <Cell params={value}/>
+                        </div>
+                    )
+                })} 
             </div>
         )
     }
