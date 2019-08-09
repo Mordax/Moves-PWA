@@ -25,12 +25,7 @@ function Routes(){
           </ul>
         </nav>
         
-        <Route exact path="/" component={App} />
-        <Route path="/About" component={About} />
-        <Route path="/EmergencyContact" component={EmergencyContact} />
-        <Route path="/Geolocation" component={Geolocation} />
-        <Route path="/IncomingComm" component={IncomingComm} />
-        <Route path="/People" component={People} />
+        
       </div>
     </Router>
   );

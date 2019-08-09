@@ -23,7 +23,6 @@ class GenericContent extends Component {
   render() {
     return(
       <div>
-        <h1>{this.state._title}</h1>
       </div>
     )
   }

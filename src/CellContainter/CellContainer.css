@@ -1,0 +1,9 @@
+.cell-container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 0.2px white solid;
+  
+    overflow: hidden;
+    margin: -1px;
+    padding: -1px;
+  }

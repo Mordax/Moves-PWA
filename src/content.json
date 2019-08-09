@@ -1,0 +1,34 @@
+[
+    {
+      "order": 1,
+      "name": "thief",
+      "fullName": "Thief and crime",
+      "title": "Thiefing and crime information",
+      "icon": "/images/libra.png",
+      "content": "/api/content/thief"
+    },
+    {
+      "order": 2,
+      "name": "importantPlace",
+      "fullName": "Important places",
+      "title": "Thiefing and crime information",
+      "icon": "/images/libra.png",
+      "content": "/api/content/thief"
+    },
+    {
+      "order": 3,
+      "name": "hotel",
+      "fullName": "Hotel relocation",
+      "title": "Get a new hotel",
+      "icon": "/images/libra.png",
+      "content": "/api/content/thief"
+    },
+    {
+      "order": 4,
+      "name": "Thing",
+      "fullName": "The thing",
+      "title": "Beware of the thing",
+      "icon": "/images/libra.png",
+      "content": "/api/content/thief"
+    }
+]
