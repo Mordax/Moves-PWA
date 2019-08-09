@@ -1,29 +1,33 @@
 import React from 'react';
 import "./CellContainer.css"
 import Cell from '../Cell/Cell.js';
+import {Link} from 'react-router-dom';
 
 class CellContainer extends React.Component {
 
-    constructor(props){
-        super(props)
-        this.state = {
-            content: this.props.content
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      content: this.props.content
     }
+  }
 
-    render(){
-        return (
-            <div className="cell-container">
-                {this.state.content.map((value, index) => {
-                    return (
-                        <div key={index} className="square">
-                            <Cell params={value}/>
-                        </div>
-                    )
-                })} 
+  render() {
+    return (
+      <div className="cell-container">
+
+        {this.state.content.map((value, key) => {
+          const _path = '/content/' + value.name;
+          return (
+            <div className="square" key={key}>
+              <Link to={_path}><Cell params={value} /></Link>
             </div>
-        )
-    }
+          )
+        })}
+
+      </div>
+    )
+  }
 
 }
 
