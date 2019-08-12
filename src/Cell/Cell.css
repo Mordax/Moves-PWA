@@ -9,7 +9,7 @@
   .square::before {
     content: "";
     display: block;
-    padding-top: 100%;
+    /* padding-top: 100%; */
   }
   
   .square .content {
@@ -32,8 +32,8 @@
   }
   
   .circle {
-    width: 70%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     background-color: white;
     display: flex;

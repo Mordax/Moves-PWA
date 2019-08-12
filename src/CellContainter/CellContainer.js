@@ -7,6 +7,14 @@ class CellContainer extends React.Component {
 
   constructor(props) {
     super(props)
+    try {
+      let z = document.getElementById("mobile-menu");
+      z.classList.remove("show");
+      let y = document.getElementById("language-menu");
+      y.classList.remove("show");
+    } catch(e) {
+
+    }
     this.state = {
       content: this.props.content
     }

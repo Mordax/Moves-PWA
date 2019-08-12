@@ -1,19 +1,19 @@
 [
     {
     	"order": 0,
-    	"name": "thief",
+    	"name": "legel",
     	"fullName": "Laws and traditions",
-      	"title": "Thiefing and crime information",
-      	"icon": "./images/libra.png",
+      	"title": "Laws, by-laws and traditions",
+      	"icon": "/images/libra.png",
       	"content": "/api/content/thief"
     },
     {
       "order": 2,
       "name": "importantPlace",
       "fullName": "Important places",
-      "title": "Thiefing and crime information",
+      "title": "Hospitals police stations and stuff",
       "icon": "/images/libra.png",
-      "content": "/api/content/thief"
+      "content": "/api/content/important"
     },
     {
       "order": 3,
@@ -21,14 +21,14 @@
       "fullName": "Hotel relocation",
       "title": "Get a new hotel",
       "icon": "/images/libra.png",
-      "content": "/api/content/thief"
+      "content": "/api/content/hotel"
     },
     {
       "order": 4,
-      "name": "Thing",
+      "name": "thing",
       "fullName": "The thing",
       "title": "Beware of the thing",
       "icon": "/images/libra.png",
-      "content": "/api/content/thief"
+      "content": "/api/content/thing"
     }
 ]

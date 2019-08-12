@@ -20,7 +20,8 @@ import Login from './Login/Login.js';
 
 function App() {
   return (
-    <div>        
+    <div> 
+
       <Header/>
       <Menubar/>
 
@@ -39,7 +40,8 @@ function App() {
             <Route exact path={"/content/" + r.name} component={() => <GenericContent params={r}/>} key={k}/>)
         }
 
-        <Route exact path="/login" component={() => <Login />} />
+
+        <Route path="*" component={() => <CellContainer content={Content} />} />
       </Switch>
       <Footer/>  
     </div>
