@@ -3,7 +3,7 @@
 const CACHE_NAME = 'moves-cache-v1';
 
 const FILES_TO_CACHE = [
-  '/offline.html',
+  '/images/*',
 ];
 
 self.addEventListener('install', (evt) => {
@@ -44,5 +44,19 @@ self.addEventListener('fetch', (evt) => {
             return cache.match('offline.html');
           });
       })
+  );
+});
+
+self.addEventListener('push', function(event) {
+  const data = event.data.json();
+  console.log('Got push data ', data);
+
+  event.waitUntil(
+    self.registration.showNotification(
+      data.title, {
+        body: data.msg,
+        vibrate: [500, 100, 500]
+      }
+    )
   );
 });
