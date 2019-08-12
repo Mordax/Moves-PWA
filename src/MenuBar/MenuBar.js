@@ -1,5 +1,6 @@
 import React from 'react';
-import "./MenuBar.css"
+import "./MenuBar.css";
+import { Link } from 'react-router-dom';
 
 class MenuBar extends React.Component {
 
@@ -35,19 +36,20 @@ class MenuBar extends React.Component {
                 <hr />
 
                 <ul id="mobile-menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Need help?</a></li>
-                    <li><a href="#">Futher information</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <Link to="/"><li>Home</li></Link>
+                    <Link to="/help"><li>Need help?</li></Link>
+                    <Link to="/information"><li>Futher information</li></Link>
+                    <Link to="/about"><li>About us</li></Link>
+                    <Link to="/contact"><li>Contact</li></Link>
+                    <Link to="/emergency"><li>Emergency Contact</li></Link>
+                    <Link to="/people"><li>People</li></Link>
+                    <Link to="/alerts"><li>Annoucements</li></Link>
                 </ul>
 
                 <ul id="language-menu">
-                    <li><a href="#">language</a></li>
-                    <li><a href="#">language</a></li>
-                    <li><a href="#">language</a></li>
-                    <li><a href="#">language</a></li>
-                    <li><a href="#">language</a></li>
+                    <li>EN</li>
+                    <li>DK</li>
+                    <li>FR</li>
                 </ul>
 
                 <div className="grid-presentation">
