@@ -1,10 +1,10 @@
 [
     {
-    	"order": 0,
+    	"order": 1,
     	"name": "legel",
     	"fullName": "Laws and traditions",
       	"title": "Laws, by-laws and traditions",
-      	"icon": "/images/libra.png",
+      	"icon": "/images/thief.png",
       	"content": "/api/content/thief"
     },
     {
@@ -30,5 +30,13 @@
       "title": "Beware of the thing",
       "icon": "/images/libra.png",
       "content": "/api/content/thing"
+    },
+    {
+      "order": 5,
+      "name": "contact",
+      "fullName": "Emergency Contact",
+      "title": "Get your emergency contact",
+      "icon": "/images/phone.png",
+      "content": "/api/content/emergency"
     }
 ]

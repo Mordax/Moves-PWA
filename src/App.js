@@ -40,8 +40,9 @@ function App() {
             <Route exact path={"/content/" + r.name} component={() => <GenericContent params={r}/>} key={k}/>)
         }
 
-
-        <Route path="*" component={() => <CellContainer content={Content} />} />
+      <Route exact path = '/api/useraccounts/login' render = { () => (
+                        <Login/>
+      			    ) }/>
       </Switch>
       <Footer/>  
     </div>
