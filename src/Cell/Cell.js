@@ -1,5 +1,5 @@
-import React from 'react';
-import "./Cell.css"
+import React from "react";
+import "./Cell.css";
 
 class Cell extends React.Component {
   constructor(props) {
@@ -16,19 +16,15 @@ class Cell extends React.Component {
 
   render() {
     return (
-
-
-      <div>
+      <>
         <div className="circle">
           <img src={this.state.icon} alt="" />
         </div>
         <div className="grid-item-text-box">
-          <h3>
-            {this.state.fullName}
-          </h3>
+          <h3>{this.state.fullName}</h3>
         </div>
-      </div>    
-    )
+      </>
+    );
   }
 }
 export default Cell;
