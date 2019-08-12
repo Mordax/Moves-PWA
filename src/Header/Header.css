@@ -3,7 +3,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../images/view.png");
+  background-image: url("/images/view.png");
   background-repeat: no-repeat;
   background-size: cover;
 }

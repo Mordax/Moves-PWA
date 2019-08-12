@@ -7,7 +7,7 @@ import Menubar from './MenuBar/MenuBar.js';
 import CellContainer from './CellContainter/CellContainer.js';
 import Footer from './Footer/Footer.js';
 import Content from './content.json';
-import GenericContent from './GenericContent';
+import GenericContent from './GenericContent/GenericContent.js';
 import Help from './Help/Help.js';
 import Information from './Information/Information.js';
 import About from './About/About.js';
