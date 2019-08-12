@@ -18,9 +18,25 @@ import Alert from './Alert/Alert.js';
 import Login from './Login/Login.js';
 
 
-function App() {
-  return (
-    <div>        
+class App extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      loggedIn: false
+    }
+    this.setLoggedInState = this.setLoggedInState.bind(this)
+  }
+
+  setLoggedInState(state){
+    this.setState({
+      loggedIn: state
+    })
+  }
+
+  render(){
+    return (
+      <div>        
       <Header/>
       <Menubar/>
 
@@ -30,22 +46,21 @@ function App() {
         <Route exact path="/information" component={() => <Information />} />
         <Route exact path="/about" component={() => <About />} />
         <Route exact path="/contact" component={() => <ContactUs />} />
-        <Route exact path="/emergency" component={() => <Emergency />} />
-        <Route exact path="/people" component={() => <People />} />
-        <Route exact path="/alerts" component={() => <Alert />} />
+        <Route exact path="/emergency" component={() => this.state.loggedIn ? <Emergency /> : <Login loggedInState={this.setLoggedInState}/>} />
+        <Route exact path="/people" component={() => this.state.loggedIn ? <People /> : <Login loggedInState={this.setLoggedInState}/>} />
+        <Route exact path="/alerts" component={() => this.state.loggedIn ? <Alert /> : <Login loggedInState={this.setLoggedInState}/> } />
+        <Route exact path ="/api/useraccounts/login" render = { () => ( <Login loggedInState={this.setLoggedInState}/> ) }/>
 
         {
           Content.map((r, k) => 
             <Route exact path={"/content/" + r.name} component={() => <GenericContent params={r}/>} key={k}/>)
         }
-
-      <Route exact path = '/api/useraccounts/login' render = { () => (
-                        <Login/>
-      			    ) }/>
+        
       </Switch>
       <Footer/>  
     </div>
-  );
+    )
+      }
 }
 
 export default App;

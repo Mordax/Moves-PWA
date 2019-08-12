@@ -3,8 +3,8 @@ import "./Login.css"
 
 class Login extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             userName: "",
             password: "",
@@ -13,7 +13,6 @@ class Login extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this)
     }
-
 
     handleChange(event) {
         if (event.target.id === "userName") {
@@ -40,10 +39,12 @@ class Login extends React.Component {
                 'password': this.state.password
             })
         }).then(res => {
-            //console.log(res)
+            if (res.status === 200) {
+                this.props.loggedInState(true)
+            } else {
+                this.props.loggedInState(false)
+            }
             return res.json();
-        }).then(d => {
-            console.log(JSON.stringify(d));
         }).catch(e => {
             console.log("Error" + e)
         });
