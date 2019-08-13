@@ -19,15 +19,10 @@ class GenericContent extends Component {
     }
   }
 
+  // TODO: edit this according to Vidas's final wireframe
   render() {
     return(
       <div>
-        <h1 onClick={this.fetchInfo}>
-            {this.state._title}
-        </h1>
-        <h1>
-            {this.state._content}
-        </h1>
       </div>
     )
   }
