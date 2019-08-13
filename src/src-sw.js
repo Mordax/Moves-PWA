@@ -7,6 +7,10 @@ self.addEventListener('message', (event) => {
     }
   });
 
+self.addEventListener('install', (event) => {
+
+});
+
 
 workbox.precaching.precacheAndRoute([]);
 
