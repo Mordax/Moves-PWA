@@ -23,6 +23,7 @@ const isLocalhost = Boolean(
 );
 
 export function register(config) {
+  console.log('Are we even here');
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
@@ -60,7 +61,7 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
-      subscribeToPush();
+      //subscribeToPush();
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
         if (installingWorker == null) {
@@ -135,48 +136,4 @@ export function unregister() {
       registration.unregister();
     });
   }
-}
-
-// -----------------------------------------------------------------
-const vapidPublicKey = 'BHu0G9M6gwhxw1DTcz6Vc9d7h5SfBOJxhQg33Hctt8z2GFsaIyD_X8JX1ut8LET5_xB2CwwjNrSJiq7EGu-lGAE';
-
-function subscribeToPush() {
-  navigator.serviceWorker.ready.then(
-    function (ServiceWorkerRegistration) {
-      const applicationServerKey = urlBase64ToUint8Array(vapidPublicKey);
-      const options = {
-        userVisibleOnly: true,
-        applicationServerKey: applicationServerKey
-      };
-      ServiceWorkerRegistration.pushManager.subscribe(options).then(
-        function (pushSubscription) {
-          console.log(pushSubscription);
-          fetch('http://localhost:7260/api/subscribe', {
-            method: 'POST',
-            headers: {
-              'Content-type': 'application/json'
-            },
-            body: JSON.stringify(pushSubscription),
-          }).catch(error => console.error(error));
-        }, function (error) {
-          console.error(error);
-        }
-      );
-    }
-  );
-}
-
-function urlBase64ToUint8Array(base64String) {
-  const padding = '='.repeat((4 - base64String.length % 4) % 4);
-  const base64 = (base64String + padding)
-      .replace(/-/g, '+')
-      .replace(/_/g, '/');
-
-  const rawData = window.atob(base64);
-  const outputArray = new Uint8Array(rawData.length);
-
-  for (let i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i);
-  }
-  return outputArray;
 }

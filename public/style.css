@@ -1,0 +1,350 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  hr {
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* header {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("images/view.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  header a {
+    text-align: center;
+  }
+  
+  header h1 {
+    text-align: center;
+    font-weight: bolder;
+  }
+  
+  header img {
+    width: 10%;
+    height: 10%;
+  }
+  
+  .phone-numbers h4 {
+    margin: 1vh;
+  }
+  
+  .emergency-call-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  } */
+  
+  button {
+    background-color: #ffffff;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #006233;
+    display: inline-block;
+    cursor: pointer;
+    color: #006233;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+  
+  button:hover {
+    background-color: #ffffff;
+  }
+  button:active {
+    position: relative;
+    top: 1px;
+  }
+  
+  #menu-button {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menu-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 5vw;
+    margin-left: 5vw;
+    padding: 1vw;
+  }
+  
+  #mobile-menu {
+    display: none;
+    transition: 1s;
+  }
+  
+  #language-menu {
+    display: none;
+    transition: 1s;
+  }
+  
+  .show {
+    display: block !important;
+    opacity: 1;
+  }
+  
+  #mobile-menu li {
+    list-style: none;
+    text-align: center;
+    font-weight: bold;
+    margin: 1vh;
+    font-size: 3.5vh;
+  }
+  
+  #mobile-menu a {
+    color: #006233;
+  }
+  #language-menu li {
+    list-style: none;
+    text-align: center;
+    font-weight: bold;
+    margin: 1vh;
+    font-size: 3.5vh;
+  }
+  
+  #language-menu a {
+    color: #006233;
+  }
+  
+  .grid-presentation {
+    text-align: center;
+    color: #006233;
+    margin: 2vh 0px 2vh 0px;
+  }
+  
+  .grid-presentation h2,
+  h3 {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /*
+  
+  ------ unfinished grid
+  
+  .grid-wrapper {
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(1fr, auto));
+    grid-template-rows: repeat(minmax(1fr, auto));
+  
+    grid-row: auto auto;
+    grid-row-gap: 0.5px;
+    grid-column-gap: 0.5px;
+  }
+  
+  @media only screen and (min-width: 740px) {
+    .grid-wrapper {
+      grid-template-columns: repeat(3, minmax(40vh, auto));
+    }
+  }
+  
+  .grid-item {
+    background-color: #d1d1d1;
+  } */
+  
+  /* menu icon */
+  
+  .container {
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 30px;
+    height: 5px;
+    background-color: #006233;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  
+  .change .bar2 {
+    opacity: 0;
+  }
+  
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+  
+  /* menu icon end */
+  
+  /* grid css  */
+/*   
+  .square-container {
+    display: flex;
+    flex-wrap: wrap;
+    border: 0.2px white solid;
+  
+    overflow: hidden;
+    margin: -1px;
+    padding: -1px;
+  }
+  
+  .square {
+    position: relative;
+    flex-basis: calc(50%);
+    background-color: #ebe8e8;
+    box-sizing: border-box;
+    border: 0.2px solid black;
+  }
+  
+  .square::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+  
+  .square .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+  } */
+  
+  .grid-item-text-box {
+    margin: 2vh;
+    padding: 1vh;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  /* .circle {
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #006233;
+  }
+  
+  .circle img {
+    width: 60%;
+    height: 60%;
+  } */
+  
+  /* grid end */
+  
+  /* footer */
+  
+  footer {
+    text-align: center;
+    background-color: #3f3c3c;
+    color: white;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+  }
+  
+  footer h2 {
+    margin-top: 0;
+  }
+  
+  footer p {
+    margin-bottom: 0;
+  }
+  
+  /* footer end */
+  
+  /* page */
+  
+  .article-area {
+    margin-right: 10vh;
+    margin-left: 10vh;
+    max-width: 800px;
+    margin-bottom: 5vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .article-area p {
+    text-align: center;
+  }
+  
+  .article-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 370px;
+  }
+  
+  .article-title h1 {
+    color: #006233;
+    font-weight: bold;
+  }
+  
+  @media only screen and (min-width: 700px) {
+    .article-area {
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+  
+  .article-area ul li {
+    color: #006233;
+    list-style: circle;
+  }
+  
+  /* page end */
+  /* forms  */
+  
+  .form-area-wrapper {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-wrapper {
+    width: 60%;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #006233;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+  
+  /* forms end */
+  

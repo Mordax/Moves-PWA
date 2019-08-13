@@ -10,6 +10,14 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MO:VES">
+    <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
+    <meta name="description" content="MO:VES PWA app">
+    <!-- TODO: fix this color -->
+    <meta name="theme-color" content="#2F3BA2" />
+
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
 
@@ -20,7 +28,7 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
         rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    
 
 
 
@@ -50,5 +58,56 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js');
+        if ('PushManager' in window)  subscribeToPush();
+        else console.error('Push is not supported');
+      }
+      const vapidPublicKey = 'BHu0G9M6gwhxw1DTcz6Vc9d7h5SfBOJxhQg33Hctt8z2GFsaIyD_X8JX1ut8LET5_xB2CwwjNrSJiq7EGu-lGAE';
+      const API_URL = "https://push-server-moves-a.herokuapp.com/api";
+      function subscribeToPush() {
+            navigator.serviceWorker.ready.then(
+                function (serviceWorkerRegistration) {
+                    // Register to push events here
+                    // The server key has to be encoded using this function to work with the Push API
+                    const applicationServerKey = urlBase64ToUint8Array(vapidPublicKey);
+                    const options = {
+                        userVisibleOnly: true,
+                        applicationServerKey: applicationServerKey
+                    };
+                    // This method will create the subscription (or retrive an existing one)
+                    serviceWorkerRegistration.pushManager.subscribe(options).then(
+                        function (pushSubscription) { // And this callback will get the subscription
+                            console.log(pushSubscription);
+                            fetch(`${API_URL}/subscribe`, { // And now we can send it to our server.
+                                method: 'post',
+                                headers: {
+                                    'Content-type': 'application/json'
+                                },
+                                body: JSON.stringify(pushSubscription), // Our subscription is sent as JSON in the body
+                            }).catch(error => console.error(error));
+                        }, function (error) {
+                            console.log(error);
+                        }
+                    );
+                });
+        }
+
+      function urlBase64ToUint8Array(base64String) {
+          const padding = '='.repeat((4 - base64String.length % 4) % 4);
+          const base64 = (base64String + padding)
+              .replace(/-/g, '+')
+              .replace(/_/g, '/');
+
+          const rawData = window.atob(base64);
+          const outputArray = new Uint8Array(rawData.length);
+
+          for (let i = 0; i < rawData.length; ++i) {
+              outputArray[i] = rawData.charCodeAt(i);
+          }
+          return outputArray;
+      }
+    </script>
   </body>
 </html>

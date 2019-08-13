@@ -4,7 +4,6 @@ class GenericContent extends Component {
 
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       // Short name of the content piece
       _name: this.props.params.name,
@@ -15,20 +14,31 @@ class GenericContent extends Component {
       // URL to the icon of the content component
       _icon: this.props.params.icon,
       // Route for retriving text-content (HTML piece) of the content component
-      _content: this.props.params.content
+      _content: this.props.params.content,
+      _base: 'https://moves-backend-a.herokuapp.com',
+      _markup : '',
     }
   }
 
+  componentDidMount() {
+    fetch(this.state._base + this.state._content)
+    .then(res => res.json())
+    .then(data => this.setState({_markup: data.data[0].content}))
+    .catch(e => console.log(e));
+  }
+
+  fetchLanguage() {
+
+  }
+
+  fetchContent() {
+
+  }
+
   render() {
+    const markup = this.state._markup;
     return(
-      <div>
-        <h1 onClick={this.fetchInfo}>
-            {this.state._title}
-        </h1>
-        <h1>
-            {this.state._content}
-        </h1>
-      </div>
+      <div dangerouslySetInnerHTML={{__html: markup}} />
     )
   }
 }

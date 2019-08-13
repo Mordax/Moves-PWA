@@ -6,7 +6,6 @@ import Header from './Header/Header.js';
 import Menubar from './MenuBar/MenuBar.js';
 import CellContainer from './CellContainter/CellContainer.js';
 import Footer from './Footer/Footer.js';
-import Content from './content.json';
 import GenericContent from './GenericContent/GenericContent.js';
 import Help from './Help/Help.js';
 import Information from './Information/Information.js';
@@ -17,6 +16,8 @@ import People from './People/People.js';
 import Alert from './Alert/Alert.js';
 import Login from './Login/Login.js';
 
+
+import Content from './content.json';
 
 class App extends React.Component {
 
@@ -53,7 +54,7 @@ class App extends React.Component {
 
         {
           Content.map((r, k) => 
-            <Route exact path={"/content/" + r.name} component={() => <GenericContent params={r}/>} key={k}/>)
+            <Route exact path={"/content/" + r.slug} component={() => <GenericContent params={r}/>} key={k}/>)
         }
         
       </Switch>
