@@ -1,42 +1,42 @@
 [
     {
     	"order": 1,
-    	"name": "legel",
+    	"slug": "legal",
     	"fullName": "Laws and traditions",
       	"title": "Laws, by-laws and traditions",
-      	"icon": "/images/thief.png",
-      	"content": "/api/content/thief"
+      	"icon": "/images/legal.png",
+      	"content": "/api/content/slug/legal"
     },
     {
       "order": 2,
-      "name": "importantPlace",
+      "slug": "importantPlace",
       "fullName": "Important places",
       "title": "Hospitals police stations and stuff",
-      "icon": "/images/libra.png",
-      "content": "/api/content/important"
+      "icon": "/images/importantPlace.png",
+      "content": "/api/content/slug/importantPlace"
     },
     {
       "order": 3,
-      "name": "hotel",
+      "slug": "hotel",
       "fullName": "Hotel relocation",
       "title": "Get a new hotel",
       "icon": "/images/libra.png",
-      "content": "/api/content/hotel"
+      "content": "/api/content/slug/hotel"
     },
     {
       "order": 4,
-      "name": "thing",
+      "slug": "thing",
       "fullName": "The thing",
       "title": "Beware of the thing",
-      "icon": "/images/libra.png",
-      "content": "/api/content/thing"
+      "icon": "/images/thing.png",
+      "content": "/api/content/slug/thing"
     },
     {
       "order": 5,
-      "name": "contact",
+      "slug": "contact",
       "fullName": "Emergency Contact",
       "title": "Get your emergency contact",
       "icon": "/images/phone.png",
-      "content": "/api/content/emergency"
+      "content": "/api/content/slug/emergency"
     }
 ]

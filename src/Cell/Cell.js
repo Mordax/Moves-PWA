@@ -6,7 +6,7 @@ class Cell extends React.Component {
     super(props);
     this.state = {
       order: this.props.params.order,
-      name: this.props.params.name,
+      slug: this.props.params.slug,
       fullName: this.props.params.fullName,
       title: this.props.params.title,
       icon: this.props.params.icon,

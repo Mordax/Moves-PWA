@@ -23,7 +23,7 @@ class CellContainer extends React.Component {
     return (
       <div className="cell-container">
         {this.state.content.map((value, key) => {
-          const _path = "/content/" + value.name;
+          const _path = "/content/" + value.slug;
           return (
             <div className="square" key={key}>
               <Link to={_path} className="content">
