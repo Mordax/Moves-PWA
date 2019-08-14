@@ -1,9 +1,14 @@
 import React from 'react';
-import "./People.css"
+import "./People.css" 
 
 class People extends React.Component {
-    constructor() {
-        super();
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            people: null
+        }
+
         try {
             let z = document.getElementById("mobile-menu");
             z.classList.remove("show");
@@ -12,12 +17,48 @@ class People extends React.Component {
         } catch(e) {
 
         }
+
+        // Call dataManager to get all personnel, then set the componant state
+        this.props.manager.getAllPersonnel().then(data => {
+            this.setState({
+                people: data
+            })
+        })
     }
+
     render() {
         return(
-        <h1>This is the GUARDED page of People list</h1>
+            <div>
+                <h1>This is the GUARDED page of People list</h1>
+                {
+                    // temporary just for testing
+                    this.state.people ? 
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Job Title</th>
+                                <th>Contact Number</th>
+                            </tr>
+                            {
+                                this.state.people.map((person, index)=>{
+                                    return (
+                                        <tr key={index}>
+                                            <td>{person.givenName}</td>
+                                            <td>{person.familyName}</td>
+                                            <td>{person.jobTitle}</td>
+                                            <td>{person.phoneMobile}</td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </table>
+                    : <></>
+                }
+            </div>
         )
     }
 }
-
 export default People;

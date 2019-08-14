@@ -23,14 +23,14 @@ class App extends React.Component {
 
   constructor(props){
     super(props);
-    this.dbManager = require("./IndexedDbManager")()
+    this.dataManager = require("./dataManager")()
   }
 
   render(){
     return (
       <div>        
         <Header/>
-        <Menubar manager={this.dbManager}/>
+        <Menubar manager={this.dataManager}/>
 
         <Switch>
           <Route exact path="/" component={() => <CellContainer content={Content} />} />
@@ -39,12 +39,12 @@ class App extends React.Component {
           <Route exact path="/about" component={() => <About />} />
           <Route exact path="/contact" component={() => <ContactUs />} />
           
-          <Route exact path="/emergency" component={() => this.dbManager.tokenIsValid() ? <Emergency /> : <></>} />
-          <Route exact path="/people" component={() => this.dbManager.tokenIsValid() ? <People /> : <></>} />
-          <Route exact path="/alerts" component={() => this.dbManager.tokenIsValid() ? <Alert /> : <></> } />
+          <Route exact path="/emergency" component={() => this.dataManager.tokenIsValid() ? <Emergency /> : <></>} />
+          <Route exact path="/people" component={() => this.dataManager.tokenIsValid() ? <People manager={this.dataManager}/> : <></>} />
+          <Route exact path="/alerts" component={() => this.dataManager.tokenIsValid() ? <Alert /> : <></> } />
           
           <Route exact path ="/api/useraccounts/login" render = {()=> ( 
-            this.dbManager.tokenIsValid() ? <Redirect to="/"/> :  <Login manager={this.dbManager} history={this.props.history}/>
+            this.dbManager.tokenIsValid() ? <Redirect to="/"/> :  <Login manager={this.dataManager} history={this.props.history}/>
           )}/>
 
           {

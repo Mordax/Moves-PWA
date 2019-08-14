@@ -7,8 +7,7 @@ class Login extends React.Component {
         super(props);
         this.state = {
             userName: "",
-            password: "",
-            postUrl: "https://moves-backend-a.herokuapp.com/api/useraccounts/login"
+            password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -26,30 +25,17 @@ class Login extends React.Component {
         }
     }
 
+    // Show some sort of error? userName or password incorrect?
+    showLogInError(){
+        console.log("ERROR loggin in")
+    }
+
     handleSubmit(event) {
         event.preventDefault();
-        fetch(this.state.postUrl, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                'userName': this.state.userName,
-                'password': this.state.password
-            })
-        }).then(res => {
-            let response = res.json();
-            if (res.status === 200) {
-                response.then(d => {
-                    this.props.manager.saveToken(d.token);
-                    this.props.history.goBack();
-                })
-            }
-            return response;
-        }).catch(e => {
-            console.log("Error: " + e)
-        });
+        // Call dataManager logIn, if successfulLogIn then go back one page, if not show error
+        this.props.manager.logIn(this.state.userName, this.state.password).then(successfulLogIn => {
+            successfulLogIn ? this.props.history.goBack() : this.showLogInError()
+        })
     }
 
     render(){

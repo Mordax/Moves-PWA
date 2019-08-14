@@ -1,16 +1,14 @@
 import React from 'react';
 import "./MenuBar.css";
 import { Link } from 'react-router-dom';
-import { longStackSupport } from 'q';
 
 class MenuBar extends React.Component {
 
     constructor(props){
         super(props);
-        this.dbManager = this.props.manager;
-        this.removeToken = this.dbManager.removeToken.bind(this);
-      }
-
+        this.dataManager = this.props.manager;
+        this.removeToken = this.dataManager.removeToken.bind(this);
+    }
 
     shownav(x) {
         x.target.classList.toggle("change");
@@ -49,7 +47,7 @@ class MenuBar extends React.Component {
                     <Link to="/information"><li>Futher information</li></Link>
                     <Link to="/about"><li>About us</li></Link>
                     <Link to="/contact"><li>Contact</li></Link>
-                    { this.dbManager.tokenIsValid() ? 
+                    { this.dataManager.tokenIsValid() ? 
                         <React.Fragment>
                             <Link to="/emergency"><li>Emergency Contact</li></Link>
                             <Link to="/people"><li>People</li></Link>

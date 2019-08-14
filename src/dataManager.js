@@ -1,20 +1,21 @@
+module.exports = function(){
 
-module.exports = function() {
+    let baseUrl = "https://moves-backend-a.herokuapp.com/api/"
 
     // Create a data base open request, named "dataBase", version 1
     let request = indexedDB.open("dataBase", 1);
     let dataBase;
-
+   
     // Data base did NOT already exist, but now created
     request.onupgradeneeded = function() {
         // Store data base reference
         dataBase = request.result;
         // Check data base to see if objectStore exists. if not, create one
         if (!dataBase.objectStoreNames.contains('tokenObjectStore')) {
-          dataBase.createObjectStore('tokenObjectStore',{autoIncrement:true});
+            dataBase.createObjectStore('tokenObjectStore',{autoIncrement:true});
         } 
     };
-
+   
     request.onsuccess = function() {
         // Store data base reference
         dataBase = request.result;
@@ -39,12 +40,80 @@ module.exports = function() {
 
     return {
 
+        getAllPersonnel(){
+            let token = localStorage.getItem("token")
+            if(token){
+                 return fetch(baseUrl + "personnel", {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': ("BEARER " + token)
+                    }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    return Promise.resolve(data)
+                })
+                .catch(error => {
+                    console.log("ERROR: " + error)
+                })
+            }
+        },
+
+        getAllAnnouncement(){
+            let token = localStorage.getItem("token")
+            if(token){
+                return fetch(baseUrl + "announcement/active", {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': ("BEARER " + token)
+                    }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    return Promise.resolve(data)
+                })
+                .catch(error => {
+                    console.log("Error: " + error)
+                });
+            }
+        },
+
+        logIn(userName, password){
+            return fetch(baseUrl + "useraccounts/login", {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    'userName': userName,
+                    'password': password
+                })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.token){
+                    this.saveToken(data.token)
+                    return true
+                } else {
+                    return false
+                }
+            })
+            .catch(error => {
+                console.log("Error: " + error)
+            });
+        },
+
         // Not using this anywhere
-        async getTokenFromIDB() {
+        getTokenFromIDB() {
             return new Promise((resolve, reject)=>{
                 request.onsuccess = function(event){
                     let dataBase = request.result
-                     // Make a transaction object that has "read and write" access to the tokenObjectStore
+                    // Make a transaction object that has "read and write" access to the tokenObjectStore
                     let transaction = dataBase.transaction("tokenObjectStore", "readonly");
                     // Make a reference to the tokenObjectStore
                     let tokenObjectStore = transaction.objectStore("tokenObjectStore");
@@ -60,7 +129,7 @@ module.exports = function() {
                 }
             })
         },
-    
+        
         saveToken(token){
             if (token !== ""){
                 // Make a transaction object that has "read and write" access to the tokenObjectStore
@@ -73,7 +142,7 @@ module.exports = function() {
                 localStorage.setItem("token", token);
             }
         },
-
+    
         tokenIsValid(){
             // Get token from localStorage if one exists, if not return null
             let token = localStorage.getItem("token")
@@ -85,10 +154,12 @@ module.exports = function() {
                 return false
             }
         },
-
+    
         // Still need to finish
         removeToken(){
             console.log("log out")
         }
+
     }
+
 }
