@@ -1,20 +1,16 @@
 import React from 'react';
-import "./Footer.css"
+import "./Footer.css";
+import { withTranslation } from 'react-i18next';
 
 class Footer extends React.Component {
     render() {
+        const { t } = this.props;
         return (
             <div>
                 <footer>
-                    <h2>Our Mission</h2>
+                    <h2>{t('Our Mission')}</h2>
                     <p>
-                        Our help is <b>free and confidential</b> and be open from the beginning
-                        of 2020, from there we will always be open to our volunteers' calls or
-                        emails if they or anyone they know requires help. We therefore aspire to
-                        offer this service by sponsorships and hope to receive widespread
-                        support of our work to build a stronger civil community - not only in
-                        Tanger, but the rest of Morocco- with the help of the local, national
-                        and international associations.
+                        {t('Our help is')} <b>{t('Free')}</b> {t('Mission Blurb')}
                     </p>
                 </footer>
             </div>
@@ -22,4 +18,4 @@ class Footer extends React.Component {
     }
 }
 
-export default Footer;
+export default withTranslation() (Footer);

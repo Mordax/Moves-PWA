@@ -1,6 +1,8 @@
 import React from 'react';
 import "./MenuBar.css";
 import { Link } from 'react-router-dom';
+import { withTranslation } from 'react-i18next';
+import i18next from 'i18next';
 
 class MenuBar extends React.Component {
 
@@ -21,10 +23,11 @@ class MenuBar extends React.Component {
     }
 
     render(){
+        const { t } = this.props;
         return (
             <div>
                 <div className="menu-wrapper">
-                    <button onClick={((e) => this.showlanguage(e))}>Choose Language</button>
+                    <button onClick={((e) => this.showlanguage(e))}>{t('Choose Language')}</button>
                     <button id="menu-button" onClick={((e) => this.shownav(e))}>
                         <div className="container">
                             <div className="bar1"></div>
@@ -36,25 +39,26 @@ class MenuBar extends React.Component {
                 <hr />
 
                 <ul id="mobile-menu">
-                    <Link to="/"><li>Home</li></Link>
-                    <Link to="/help"><li>Need help?</li></Link>
-                    <Link to="/information"><li>Futher information</li></Link>
-                    <Link to="/about"><li>About us</li></Link>
-                    <Link to="/contact"><li>Contact</li></Link>
-                    <Link to="/emergency"><li>Emergency Contact</li></Link>
-                    <Link to="/people"><li>People</li></Link>
-                    <Link to="/alerts"><li>Annoucements</li></Link>
+                    <Link to="/"><li>{t('Home')}</li></Link>
+                    <Link to="/help"><li>{t('Help')}</li></Link>
+                    <Link to="/information"><li>{t('Information')}</li></Link>
+                    <Link to="/about"><li>{t('About')}</li></Link>
+                    <Link to="/contact"><li>{t('Contact')}</li></Link>
+                    <Link to="/emergency"><li>{t('Emergency')}</li></Link>
+                    <Link to="/people"><li>{t('People')}</li></Link>
+                    <Link to="/alerts"><li>{t('Alerts')}</li></Link>
                 </ul>
 
                 <ul id="language-menu">
-                    <li>EN</li>
-                    <li>DK</li>
-                    <li>FR</li>
+                    <button onClick={() => i18next.changeLanguage('en')}><li>EN</li></button>
+                    <button onClick={() => i18next.changeLanguage('dk')}><li>DK</li></button>
+                    <button onClick={() => i18next.changeLanguage('fr')}><li>FR</li></button>
+                    <button onClick={() => i18next.changeLanguage('ar')}><li>AR</li></button>
                 </ul>
 
                 <div className="grid-presentation">
-                    <h2>We can help you with: <br /></h2>
-                    <h3>Our help is free and confidential</h3>
+                    <h2>{t('We can help you with')}: <br /></h2>
+                    <h3>{t('Our help is free')}</h3>
                 </div>
 
             </div>
@@ -63,4 +67,4 @@ class MenuBar extends React.Component {
 
   
 }
-export default MenuBar;
+export default withTranslation() (MenuBar);
