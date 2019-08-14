@@ -14,10 +14,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    //"build": "react-scripts build",
+    "build": "react-scripts build && workbox injectManifest workbox-config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "npm run build && workbox injectManifest workbox-config.js"
+    "buildsw": "npm run build && workbox injectManifest workbox-config.js"
   },
   "eslintConfig": {
     "extends": "react-app"
