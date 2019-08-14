@@ -16,8 +16,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build && workbox injectManifest workbox-config.js",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "buildsw": "npm run build && workbox injectManifest workbox-config.js"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
