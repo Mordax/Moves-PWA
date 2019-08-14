@@ -84,6 +84,11 @@ module.exports = function() {
             } else {
                 return false
             }
-        }       
+        },
+
+        // Still need to finish
+        removeToken(){
+            console.log("log out")
+        }
     }
 }

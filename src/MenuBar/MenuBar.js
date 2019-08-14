@@ -1,12 +1,14 @@
 import React from 'react';
 import "./MenuBar.css";
 import { Link } from 'react-router-dom';
+import { longStackSupport } from 'q';
 
 class MenuBar extends React.Component {
 
     constructor(props){
         super(props);
         this.dbManager = this.props.manager;
+        this.removeToken = this.dbManager.removeToken.bind(this);
       }
 
 
@@ -52,10 +54,10 @@ class MenuBar extends React.Component {
                             <Link to="/emergency"><li>Emergency Contact</li></Link>
                             <Link to="/people"><li>People</li></Link>
                             <Link to="/alerts"><li>Annoucements</li></Link>
+                            <Link to="" onClick={this.removeToken}><li>Log out</li></Link>
                         </React.Fragment> :
-                            <></>
+                            <Link to="/api/useraccounts/login"><li>Log in</li></Link>
                     }
-                    <Link to="/api/useraccounts/login"><li>Log in</li></Link>
                 </ul>
 
                 <ul id="language-menu">
