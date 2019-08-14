@@ -54,6 +54,7 @@ class MenuBar extends React.Component {
                     <button onClick={() => i18next.changeLanguage('en')}><li>EN</li></button>
                     <button onClick={() => i18next.changeLanguage('dk')}><li>DK</li></button>
                     <button onClick={() => i18next.changeLanguage('fr')}><li>FR</li></button>
+                    <button onClick={() => i18next.changeLanguage('ar')}><li>AR</li></button>
                 </ul>
 
                 <div className="grid-presentation">

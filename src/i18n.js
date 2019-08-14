@@ -2,7 +2,9 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 import English from './locales/en/translation.json';
-import Danish from './locales/dk/translation.json'
+import Danish from './locales/dk/translation.json';
+import French from './locales/fr/translation.json';
+import Arabic from './locales/ar/translation.json';
 
 i18n
     .use(initReactI18next)
@@ -13,6 +15,12 @@ i18n
             },
             dk: {
                 translation: Danish
+            },
+            fr: {
+                translation: French
+            },
+            ar: {
+                translation: Arabic
             }
         },
         fallbackLng: "en",
