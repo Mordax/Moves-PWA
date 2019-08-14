@@ -1,14 +1,16 @@
 import React from 'react';
-import "./Header.css"
+import "./Header.css";
+import { withTranslation } from 'react-i18next';
 
 class Header extends React.Component {
     render(){
+        const { t } = this.props;
         return (
             <div>
                 <header>
                     <div className="header-content-wrapper">
                         <h1><b>MO:VES</b></h1>
-                        <h5>The Moroccan Volunteer Emergency Service</h5>
+                        <h5>{t('Header')}</h5>
                         <hr />
                         <a href="#" className="emergency-call-wrapper">
                             <img src="images/phone.png" alt="" />
@@ -25,4 +27,4 @@ class Header extends React.Component {
 
 }
 
-export default Header;
+export default withTranslation() (Header);
