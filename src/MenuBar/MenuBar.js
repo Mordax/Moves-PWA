@@ -3,6 +3,7 @@ import React from 'react';
 import "./MenuBar.css";
 import { Link } from 'react-router-dom';
 import { useTranslation, withTranslation, Trans } from 'react-i18next';
+import i18next from 'i18next';
 
 class MenuBar extends React.Component {
 
@@ -50,9 +51,9 @@ class MenuBar extends React.Component {
                 </ul>
 
                 <ul id="language-menu">
-                    <li>EN</li>
-                    <li>DK</li>
-                    <li>FR</li>
+                    <button onClick={() => i18next.changeLanguage('en')}><li>EN</li></button>
+                    <button onClick={() => i18next.changeLanguage('dk')}><li>DK</li></button>
+                    <button onClick={() => i18next.changeLanguage('fr')}><li>FR</li></button>
                 </ul>
 
                 <div className="grid-presentation">
