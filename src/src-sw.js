@@ -3,10 +3,10 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 workbox.precaching.precacheAndRoute([]);
 
 self.addEventListener('message', (event) => {
-    if (event.data && event.data.type === 'SKIP_WAITING') {
-      self.skipWaiting();
-    }
-  });
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
 
 
 self.addEventListener('install', (event) => {
@@ -17,6 +17,7 @@ self.addEventListener('install', (event) => {
           "https://moves-backend-a.herokuapp.com/api/content/slug/legal",
           "https://moves-backend-a.herokuapp.com/api/content/slug/thing",
           "https://moves-backend-a.herokuapp.com/api/content/slug/hotel",
+          "https://moves-backend-a.herokuapp.com/api/content/slug/importantPlace"
         ]
       )
     })
