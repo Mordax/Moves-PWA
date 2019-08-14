@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom';
 
 class MenuBar extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.dbManager = this.props.manager;
+      }
+
+
     shownav(x) {
         x.target.classList.toggle("change");
         let z = document.getElementById("language-menu");
@@ -41,9 +47,15 @@ class MenuBar extends React.Component {
                     <Link to="/information"><li>Futher information</li></Link>
                     <Link to="/about"><li>About us</li></Link>
                     <Link to="/contact"><li>Contact</li></Link>
-                    <Link to="/emergency"><li>Emergency Contact</li></Link>
-                    <Link to="/people"><li>People</li></Link>
-                    <Link to="/alerts"><li>Annoucements</li></Link>
+                    { this.dbManager.tokenIsValid() ? 
+                        <React.Fragment>
+                            <Link to="/emergency"><li>Emergency Contact</li></Link>
+                            <Link to="/people"><li>People</li></Link>
+                            <Link to="/alerts"><li>Annoucements</li></Link>
+                        </React.Fragment> :
+                            <></>
+                    }
+                    <Link to="/api/useraccounts/login"><li>Log in</li></Link>
                 </ul>
 
                 <ul id="language-menu">
@@ -56,11 +68,8 @@ class MenuBar extends React.Component {
                     <h2>We can help you with: <br /></h2>
                     <h3>Our help is free and confidential</h3>
                 </div>
-
             </div>
         )
     }
-
-  
 }
 export default MenuBar;

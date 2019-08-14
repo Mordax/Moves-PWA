@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Login.css"
+import { Redirect } from 'react-router-dom'
 
 class Login extends React.Component {
 
@@ -11,7 +12,7 @@ class Login extends React.Component {
             postUrl: "https://moves-backend-a.herokuapp.com/api/useraccounts/login"
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(event) {
@@ -39,14 +40,16 @@ class Login extends React.Component {
                 'password': this.state.password
             })
         }).then(res => {
+            let response = res.json();
             if (res.status === 200) {
-                this.props.loggedInState(true)
-            } else {
-                this.props.loggedInState(false)
+                response.then(d => {
+                    this.props.manager.saveToken(d.token);
+                    this.props.history.goBack();
+                })
             }
-            return res.json();
+            return response;
         }).catch(e => {
-            console.log("Error" + e)
+            console.log("Error: " + e)
         });
     }
 
@@ -67,5 +70,4 @@ class Login extends React.Component {
     }
 
 }
-
 export default Login;

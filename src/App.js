@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from './Header/Header.js';
 import Menubar from './MenuBar/MenuBar.js';
@@ -17,50 +17,45 @@ import People from './People/People.js';
 import Alert from './Alert/Alert.js';
 import Login from './Login/Login.js';
 
-
 class App extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      loggedIn: false
-    }
-    this.setLoggedInState = this.setLoggedInState.bind(this)
-  }
-
-  setLoggedInState(state){
-    this.setState({
-      loggedIn: state
-    })
+    this.dbManager = require("./IndexedDbManager")()
   }
 
   render(){
     return (
       <div>        
-      <Header/>
-      <Menubar/>
+        <Header/>
+        <Menubar manager={this.dbManager}/>
 
-      <Switch>
-        <Route exact path="/" component={() => <CellContainer content={Content} />} />
-        <Route exact path="/help" component={() => <Help />} />
-        <Route exact path="/information" component={() => <Information />} />
-        <Route exact path="/about" component={() => <About />} />
-        <Route exact path="/contact" component={() => <ContactUs />} />
-        <Route exact path="/emergency" component={() => this.state.loggedIn ? <Emergency /> : <Login loggedInState={this.setLoggedInState}/>} />
-        <Route exact path="/people" component={() => this.state.loggedIn ? <People /> : <Login loggedInState={this.setLoggedInState}/>} />
-        <Route exact path="/alerts" component={() => this.state.loggedIn ? <Alert /> : <Login loggedInState={this.setLoggedInState}/> } />
-        <Route exact path ="/api/useraccounts/login" render = { () => ( <Login loggedInState={this.setLoggedInState}/> ) }/>
+        <Switch>
+          <Route exact path="/" component={() => <CellContainer content={Content} />} />
+          <Route exact path="/help" component={() => <Help />} />
+          <Route exact path="/information" component={() => <Information />} />
+          <Route exact path="/about" component={() => <About />} />
+          <Route exact path="/contact" component={() => <ContactUs />} />
+          
+          <Route exact path="/emergency" component={() => this.dbManager.tokenIsValid() ? <Emergency /> : <></>} />
+          <Route exact path="/people" component={() => this.dbManager.tokenIsValid() ? <People /> : <></>} />
+          <Route exact path="/alerts" component={() => this.dbManager.tokenIsValid() ? <Alert /> : <></> } />
+          
+          <Route exact path ="/api/useraccounts/login" render = {()=> ( 
+            this.dbManager.tokenIsValid() ? <Redirect to="/"/> :  <Login manager={this.dbManager} history={this.props.history}/>
+          )}/>
 
-        {
-          Content.map((r, k) => 
-            <Route exact path={"/content/" + r.name} component={() => <GenericContent params={r}/>} key={k}/>)
-        }
+          {
+            Content.map((r, k) => 
+              <Route exact path={"/content/" + r.name} component={() => <GenericContent params={r}/>} key={k}/>)
+          }
         
-      </Switch>
-      <Footer/>  
-    </div>
-    )
-      }
-}
+        </Switch>
 
+        <Footer/>  
+      </div>
+    )
+  }
+
+}
 export default App;
