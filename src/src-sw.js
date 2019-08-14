@@ -7,8 +7,19 @@ self.addEventListener('message', (event) => {
     }
   });
 
-self.addEventListener('install', (event) => {
 
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open('runtime').then(function(cache) {
+      return cache.addAll(
+        [
+          "https://moves-backend-a.herokuapp.com/api/content/slug/legal",
+          "https://moves-backend-a.herokuapp.com/api/content/slug/thing",
+          "https://moves-backend-a.herokuapp.com/api/content/slug/hotel",
+        ]
+      )
+    })
+  )
 });
 
 
@@ -16,7 +27,9 @@ workbox.precaching.precacheAndRoute([]);
 
 workbox.routing.registerRoute(
     new RegExp('https://moves-backend-a.herokuapp.com/api/content/slug/*'),
-    new workbox.strategies.staleWhileRevalidate()
+    new workbox.strategies.StaleWhileRevalidate({
+      cacheName: 'runtime',
+    })
 );
 
 self.addEventListener('push', function (event) {

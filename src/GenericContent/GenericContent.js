@@ -23,7 +23,7 @@ class GenericContent extends Component {
   componentDidMount() {
     fetch(this.state._base + this.state._content)
     .then(res => res.json())
-    .then(data => this.setState({_markup: data.data[0].content}))
+    .then(data => this.setState({_markup: data.data[0].content + data.data[1].content}))
     .catch(e => console.log(e));
   }
 
@@ -37,6 +37,7 @@ class GenericContent extends Component {
 
   render() {
     const markup = this.state._markup;
+    console.log(markup);
     return(
       <div dangerouslySetInnerHTML={{__html: markup}} />
     )
