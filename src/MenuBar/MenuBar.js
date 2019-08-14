@@ -1,6 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import "./MenuBar.css";
 import { Link } from 'react-router-dom';
+import { useTranslation, withTranslation, Trans } from 'react-i18next';
 
 class MenuBar extends React.Component {
 
@@ -21,6 +23,7 @@ class MenuBar extends React.Component {
     }
 
     render(){
+        const {t, i18n } = this.props;
         return (
             <div>
                 <div className="menu-wrapper">
@@ -53,7 +56,7 @@ class MenuBar extends React.Component {
                 </ul>
 
                 <div className="grid-presentation">
-                    <h2>We can help you with: <br /></h2>
+                    <h2>{t('We can help you with')}: <br /></h2>
                     <h3>Our help is free and confidential</h3>
                 </div>
 
@@ -63,4 +66,4 @@ class MenuBar extends React.Component {
 
   
 }
-export default MenuBar;
+export default withTranslation() (MenuBar);
