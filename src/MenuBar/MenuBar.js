@@ -11,6 +11,7 @@ class MenuBar extends React.Component {
     this.dataManager = this.props.manager;
     this.removeToken = this.dataManager.removeToken.bind(this);
     // this.client = client;
+    this.getCurrentLanguageAndFlag = this.getCurrentLanguageAndFlag.bind(this);
   }
 
   shownav(u) {
@@ -49,6 +50,21 @@ class MenuBar extends React.Component {
     i18next.changeLanguage(lang);
     console.log("emitted ", lang);
     client.emit("lang", lang);
+  }
+
+  getCurrentLanguageAndFlag() {
+    switch(i18next.language) {
+      case 'en-CA':
+        return <React.Fragment><img src="images/united-kingdom.svg" alt="UK flag" />EN</React.Fragment>;
+      case 'dk-DK':
+        return <React.Fragment><img src="images/denmark.svg" alt="DK flag" />DK</React.Fragment>;
+      case 'fr-FR':
+        return <React.Fragment><img src="images/france.svg" alt="FR flag" />FR</React.Fragment>;
+      case 'ar':
+        return <React.Fragment><img src="images/morocco.svg" alt="MO flag" />AR</React.Fragment>;
+      default:
+        return <React.Fragment><img src="images/united-kingdom.svg" alt="UK flag" />EN</React.Fragment>;
+    }
   }
 
   render() {
@@ -187,8 +203,9 @@ class MenuBar extends React.Component {
                 id="language-button"
                 onClick={e => this.showlanguage(e)}
               >
-                <img src="images/united-kingdom.svg" alt="UK flag" />
-                EN
+                {
+                  this.getCurrentLanguageAndFlag()
+                }
               </a>
             </li>
 
@@ -255,6 +272,7 @@ class MenuBar extends React.Component {
               this.collapseAll();
             }}
           >
+            <img className="button wide-item" src="images/united-kingdom.svg" alt="UK flag" />
             <li>EN</li>
           </button>
           <button
@@ -263,6 +281,7 @@ class MenuBar extends React.Component {
               this.collapseAll();
             }}
           >
+            <img className="button wide-item" src="images/denmark.svg" alt="DK flag" />
             <li>DK</li>
           </button>
           <button
@@ -271,6 +290,7 @@ class MenuBar extends React.Component {
               this.collapseAll();
             }}
           >
+            <img className="button wide-item" src="images/france.svg" alt="FR flag" />
             <li>FR</li>
           </button>
           <button
@@ -279,6 +299,7 @@ class MenuBar extends React.Component {
               this.collapseAll();
             }}
           >
+            <img className="button wide-item" src="images/morocco.svg" alt="MO flag" />
             <li>AR</li>
           </button>
         </ul>
