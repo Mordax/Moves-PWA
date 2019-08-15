@@ -17,18 +17,39 @@ self.addEventListener('install', (event) => {
           "https://moves-backend-a.herokuapp.com/api/content/slug/legal",
           "https://moves-backend-a.herokuapp.com/api/content/slug/thing",
           "https://moves-backend-a.herokuapp.com/api/content/slug/hotel",
-          "https://moves-backend-a.herokuapp.com/api/content/slug/importantPlace"
+          "https://moves-backend-a.herokuapp.com/api/content/slug/importantPlace",
+          "https://moves-backend-a.herokuapp.com/api/content/slug/help",
+          "https://moves-backend-a.herokuapp.com/api/content/slug/information",
+          "https://moves-backend-a.herokuapp.com/api/content/slug/about",
+          "https://moves-backend-a.herokuapp.com/api/content/slug/contactus"
         ]
       )
     })
   )
 });
 
+// Runtime cache all contents
 workbox.routing.registerRoute(
     new RegExp('https://moves-backend-a.herokuapp.com/api/content/slug/*'),
     new workbox.strategies.StaleWhileRevalidate({
       cacheName: 'runtime',
     })
+);
+
+// Runtime cache all announcements
+workbox.routing.registerRoute(
+  new RegExp('https://moves-backend-a.herokuapp.com/api/announcement/*'),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'runtime',
+  })
+);
+
+// Runtime cache all personnel
+workbox.routing.registerRoute(
+  new RegExp('https://moves-backend-a.herokuapp.com/api/personnel/*'),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'runtime',
+  })
 );
 
 self.addEventListener('push', function (event) {

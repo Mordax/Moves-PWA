@@ -177,7 +177,7 @@ class MenuBar extends React.Component {
               </React.Fragment>
             ) : (
               <li className="wide-item" onClick={() => this.collapseAll()}>
-                <Link to="/login">{t("Log in ")}</Link>
+                <Link to="/login">{t("Log in")}</Link>
               </li>
             )}
 
