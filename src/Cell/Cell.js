@@ -1,7 +1,6 @@
 import React from "react";
 import "./Cell.css";
 import { withTranslation } from 'react-i18next';
-import i18next from 'i18next';
 
 class Cell extends React.Component {
   constructor(props) {
