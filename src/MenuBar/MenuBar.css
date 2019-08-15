@@ -25,7 +25,7 @@
 .navigation {
   text-transform: uppercase;
   font-size: 12px;
-  flex-basis: 80%;
+  flex-basis: 60%;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -73,6 +73,7 @@
 }
 
 .navigation-item {
+  text-align: center;
 }
 
 .navigation a:hover {
@@ -119,15 +120,6 @@ button:active {
     width: 100vw !important;
   }
 }
-@media (max-width: 600px) {
-  .MOVES-LOGO h5 {
-    display: none;
-  }
-  .MOVES-LOGO h1 {
-    font-size: 30px;
-    transition: 1s;
-  }
-}
 
 @media (max-width: 950px) {
   .navigation-item {
@@ -142,7 +134,18 @@ button:active {
     flex-basis: 50%;
   }
 }
-
+@media (max-width: 600px) {
+  .MOVES-LOGO h5 {
+    display: none;
+  }
+  .MOVES-LOGO h1 {
+    font-size: 30px;
+    transition: 1s;
+  }
+  .navigation {
+    flex-basis: 60%;
+  }
+}
 @media (min-width: 951px) {
   #emergency-button {
     display: none;
@@ -152,7 +155,7 @@ button:active {
   }
   .wide-item {
     padding: 1%;
-    flex-basis: 2%;
+    flex-basis: 15%;
   }
 
   .navigation {
