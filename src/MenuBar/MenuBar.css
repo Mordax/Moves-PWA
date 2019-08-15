@@ -67,12 +67,13 @@
 }
 
 .navigation ul li {
+  justify-content: space-between;
 }
 
 .navigation a {
 }
 
-.navigation-item {
+.menu-wrapper ul li {
   text-align: center;
 }
 
@@ -159,6 +160,7 @@ button:active {
   }
 
   .navigation {
+    justify-content: center;
   }
 }
 

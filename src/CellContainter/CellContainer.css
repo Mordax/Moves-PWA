@@ -7,3 +7,12 @@
 
   padding: -1px;
 }
+
+.square a:hover {
+  text-decoration: none;
+}
+
+.square:hover img {
+  opacity: 0.8;
+  transition: 0.3s;
+}
