@@ -128,6 +128,7 @@ class MenuBar extends React.Component {
                 EN
               </button>
             </li> */}
+
             <li id="emergency-button">
               <a className="button">
                 <img
@@ -344,6 +345,7 @@ class MenuBar extends React.Component {
             <li>AR</li>
           </button>
         </ul>
+        <div className="empty-space" />
       </>
     );
   }
