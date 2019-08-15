@@ -1,5 +1,6 @@
 import React from 'react';
-import "./Login.css"
+import "./Login.css";
+import { withTranslation } from 'react-i18next';
 
 class Login extends React.Component {
 
@@ -39,13 +40,14 @@ class Login extends React.Component {
     }
 
     render(){
+        const { t } = this.props;
         return (
             <div className="form-area-wrapper">
                 <div className="form-wrapper">
                     <form onSubmit={this.handleSubmit}>
-                        <label htmlFor="userName">Username</label>
+                        <label htmlFor="userName">{t('Username')}</label>
                         <input type="text" id="userName" name="userName" onChange={this.handleChange} />
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">{t('Password')}</label>
                         <input type="password" id="password" name="password" onChange={this.handleChange}/>
                         <input type="submit" value="Submit" />
                     </form>
@@ -55,4 +57,4 @@ class Login extends React.Component {
     }
 
 }
-export default Login;
+export default withTranslation() (Login);
