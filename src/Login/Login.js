@@ -37,7 +37,40 @@ class Login extends React.Component {
         this.props.manager.logIn(this.state.userName, this.state.password).then(successfulLogIn => {
 
             if(successfulLogIn) {
-                this.props.history.goBack()
+
+                const ownHeaders = {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': ("BEARER " + localStorage.getItem('token'))
+                };
+
+                const phoneHeaders = {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': `BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6Im5ua25ndXllbkBteXNlbmVjYS5jYSIsImZ1bGxOYW1lIjoiS2hhbmcgTmd1eWVuIiwicm9sZXMiOlsiRGV2ZWxvcGVyIiwiTGVhZGVyIl0sImNsYWltcyI6W3siX2lkIjoiNWQzN2MxYzE5ZTM5NjIyOWRjZGI1M2I3IiwidHlwZSI6IlRhc2siLCJ2YWx1ZSI6IlVzZXJQZXJtaXNzaW9uRWRpdCJ9LHsiX2lkIjoiNWQzN2MxYzE5ZTM5NjIyOWRjZGI1M2I2IiwidHlwZSI6IlRhc2siLCJ2YWx1ZSI6IlRleHRDb250ZW50RWRpdCJ9LHsiX2lkIjoiNWQzN2M1YjE5ZTM5NjIyOWRjZGI1M2I5IiwidHlwZSI6IlRhc2siLCJ2YWx1ZSI6IkNvbnRlbnRWaWV3In0seyJfaWQiOiI1ZDM3Y2FkMjBiYmM0OTQzYjgwM2JiYWIiLCJ0eXBlIjoiVGFzayIsInZhbHVlIjoiVXNlclByb2ZpbGVFZGl0In0seyJfaWQiOiI1ZDM3Y2FkMjBiYmM0OTQzYjgwM2JiYWEiLCJ0eXBlIjoiVGFzayIsInZhbHVlIjoiVXNlclByb2ZpbGVWaWV3In0seyJfaWQiOiI1ZDNhMDAzZWI1ZDFhOTc4YzBkY2MwYzciLCJ0eXBlIjoiVGFzayIsInZhbHVlIjoiQWxlcnRFZGl0In0seyJfaWQiOiI1ZDU1MGI2M2Y1NDU0Y2Q1OTc3MWE5MmIiLCJ0eXBlIjoiVGFzayIsInZhbHVlIjoiUGhvbmVOdW1iZXJFZGl0In1dLCJleHAiOjE1NzM2NjE2NTcsImlhdCI6MTU2NTg4NTY1Nn0.uewbDwSp0akoNPK3ljQYTiNjLlW8_5x5uAivDMOZiqM`
+                };
+
+                caches.open('runtime').then(function(cache) {
+                    cache.addAll([
+                        new Request('https://moves-backend-a.herokuapp.com/api/announcement/active',
+                        {
+                            headers: ownHeaders
+                        }),
+                        new Request('https://moves-backend-a.herokuapp.com/api/personnel/',
+                        {
+                            headers: ownHeaders
+                        }),
+                        new Request('https://movesws-teamc-baa.herokuapp.com/api/phoneNumber/dkCallCenter',
+                        {
+                            headers: phoneHeaders
+                        }),
+                        new Request('https://movesws-teamc-baa.herokuapp.com/api/phoneNumber/maCallCenter',
+                        {
+                            headers: phoneHeaders
+                        })
+                    ]);
+                });
+                this.props.history.goBack();
             } else {
                 window.confirm('You have the wrong username/password');
             }

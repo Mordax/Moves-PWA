@@ -21,6 +21,10 @@ class App extends React.Component {
     this.dataManager = require("./dataManager")()
   }
 
+  componentWillUnmount() {
+    this.dataManager.removeToken();
+  }
+
   render(){
     return (
       <div>        

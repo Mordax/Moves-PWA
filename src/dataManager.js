@@ -98,9 +98,9 @@ module.exports = function(){
             .then(data => {
                 if(data.token){
                     this.saveToken(data.token)
-                    return true
+                    return true;
                 } else {
-                    return false
+                    return false;
                 }
             })
             .catch(error => {
