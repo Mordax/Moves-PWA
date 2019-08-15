@@ -16,3 +16,26 @@
     padding-left: 10px;
     margin: 3px;
 }
+
+.peopleItem {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  margin: 20px 16px;
+  box-sizing: content-box;
+  border: 1px solid #cfcfcf;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  -webkit-animation: fadein 1s;
+  /*Safari,ChromeandOpera>12.1*/
+  -moz-animation: fadein 1s;
+  /*Firefox<16*/
+  -ms-animation: fadein 1s;
+  /*InternetExplorer*/
+  -o-animation: fadein 1s;
+  /*Opera<12.1*/
+  animation: fadein 1s;
+}

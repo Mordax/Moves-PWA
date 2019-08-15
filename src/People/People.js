@@ -57,7 +57,7 @@ class People extends React.Component {
             <React.Fragment>
               {
                 this.state.people.map((person, index) => {
-                  return (<PeopleItem person={person}/>)
+                  return (<PeopleItem person={person} key={index}/>)
                 })
               }
             </React.Fragment>

@@ -26,7 +26,7 @@ class MenuBar extends React.Component {
     y.classList.toggle("show");
     //select body and apply overflow : hidden
     var body = document.getElementsByTagName("BODY")[0];
-    body.classList.toggle("mobile-overflow-switch");
+    // body.classList.toggle("mobile-overflow-switch");
   }
 
   showlanguage(x) {

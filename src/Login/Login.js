@@ -71,7 +71,8 @@ class Login extends React.Component {
                         })
                     ]);
                 });
-                if(this.props.location.state.referrer) {
+
+                if(this.props.location.state) {
                     this.props.history.push(this.props.location.state.referrer);
                 }
                 else {

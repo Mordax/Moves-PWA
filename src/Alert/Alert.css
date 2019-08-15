@@ -1,0 +1,105 @@
+.al-Card {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 20px;
+  margin: 20px 16px;
+  box-sizing: content-box;
+  border: 1px solid #cfcfcf;
+  border-radius: 3px;
+  background-color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  -webkit-animation: fadein 1s;
+  /*Safari,ChromeandOpera>12.1*/
+  -moz-animation: fadein 1s;
+  /*Firefox<16*/
+  -ms-animation: fadein 1s;
+  /*InternetExplorer*/
+  -o-animation: fadein 1s;
+  /*Opera<12.1*/
+  animation: fadein 1s;
+}
+.al-Card:hover {
+  border: 1px solid #38a1f3;
+}
+
+.al-Card div {
+  word-wrap: break-word;
+}
+
+.al-feed-wrapper input[type='checkbox'] {
+  margin-left: 16px;
+}
+.al-feed-wrapper label {
+  padding-left: 8px;
+  color: grey;
+}
+
+.al-feed-wrapper input[type='checkbox']:checked + label {
+  color: black;
+
+  font-weight: bold;
+}
+.al-feed-wrapper label:hover {
+  color: #3e97eb;
+  cursor: pointer;
+}
+.al-feed-wrapper input[type='checkbox']:checked + label:hover {
+  color: #3e97eb;
+
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+
+  .al-FeedItemName {
+    font-weight: bold;
+    font-size: 60%;
+  }
+}
+
+.al-FeedItemAutorAndBtnContainer {
+  height: auto;
+  overflow: hidden;
+}
+.al-FeedItemAuthor {
+  width: auto;
+  overflow: hidden;
+}
+.al-FeedItemName {
+  font-weight: bold;
+  font-size: 160%;
+}
+.al-FeedItemDate {
+  font-size: 66%;
+  color: grey;
+  margin-top: 4px;
+}
+.al-FeedItemBtnArea {
+  width: 32px;
+  float: right;
+}
+.al-FeedItemBtn {
+  width: 32px;
+  height: 32px;
+  background-color: #eee;
+  border-radius: 50%;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.al-FeedItemBtn:hover {
+  background-color: #38a1f3;
+  color: white !important;
+}
+.al-FeedItemContent {
+  display: block;
+  width: 100%;
+  margin: 16px 0px 8px;
+}
