@@ -25,8 +25,6 @@ class Geolocation extends Component {
                 <th></th>
                 <th>Name</th>
                 <th>Address</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
               </tr>
             </thead>
             <tbody>
@@ -42,10 +40,8 @@ class Geolocation extends Component {
                   </a>
                   &nbsp;&nbsp;
                 </td>
-                <td>City-Sleep In (Hostel in Aarhus)</td>
+                <td>City-Sleep In</td>
                 <td>Havnegade 20, 8000 Aarhus, Denmark</td>
-                <td>56.1551956</td>
-                <td>10.2121883</td>
               </tr>
               <tr>
                 <td>
@@ -61,8 +57,6 @@ class Geolocation extends Component {
                 </td>
                 <td>Clinique Assalam(Hospital)</td>
                 <td>Avenue d'Espagne, Tanger 90060, Morocco</td>
-                <td>35.7700194</td>
-                <td>-5.809536</td>
               </tr>
               <tr>
                 <td>
@@ -78,8 +72,6 @@ class Geolocation extends Component {
                 </td>
                 <td>Police poste Castilla</td>
                 <td>Place du Maroc, Tanger 90060, Morocco</td>
-                <td>35.7672859</td>
-                <td>-5.8153725</td>
               </tr>
               <tr>
                 <td>
@@ -95,8 +87,6 @@ class Geolocation extends Component {
                 </td>
                 <td>Tanger City Mall</td>
                 <td>Route Tanja El Balia, Tanger, Morocco</td>
-                <td>35.7735013</td>
-                <td>-5.7870483</td>
               </tr>
               <tr>
                 <td>
@@ -112,8 +102,6 @@ class Geolocation extends Component {
                 </td>
                 <td>Tanger Ville Railway Station</td>
                 <td>Tangier 90000, Morocco</td>
-                <td>35.7715294</td>
-                <td>-5.7859866</td>
               </tr>
               <tr>
                 <td>
@@ -129,8 +117,6 @@ class Geolocation extends Component {
                 </td>
                 <td>Tangier Ibn Battuta Airport</td>
                 <td>Aéroport Tanger-Ibn Batouta, Tanger, Morocco</td>
-                <td>35.7265955</td>
-                <td>-5.9150683</td>
               </tr>
             </tbody>
           </table>
@@ -138,31 +124,33 @@ class Geolocation extends Component {
         <br />
         <br />
         <br />
-        <h2>
-            How to use this app to access an offline map of Tangier through your mobile device
-        </h2>
-        <p>First, install the Google Maps app.</p>
-        <h4>Step 2 </h4>
-        <img className="tutorialPNG" src="https://i.imgur.com/SrCrUpq.png" alt="" />
-        <p>
-          Open the app.Open the app's settings by pressing the ≡{" "}
-          button in the top-left corner of your screen.
-        </p>
-        <h4>Step 3</h4>
-        <img className="tutorialPNG" src="https://i.imgur.com/UW84nJO.png" alt="" />
-        <p>
-            Press the Offline Maps button within the settings menu; its icon looks like a cloud.
-        </p>
-        <h4>Step 4</h4>
-        <img className="tutorialPNG" src="https://i.imgur.com/7zz1qF2.png" alt="" />
-        <p>Then, press the Custom Map button.</p>
-        <h4>
-          Step 5
-        </h4>
-        <img className="tutorialPNG" src="https://i.imgur.com/9p21v7I.png" alt="" />
-        <p>
-            Finally, resize the boundaries of the map to cover the city of Tangier, and click the Download button at the bottom of the screen.
-        </p>
+        <div className="wrapping">
+          <h2>
+              How to use this app to access an offline map of Tangier through your mobile device
+          </h2>
+          <p>First, install the Google Maps app.</p>
+          <h4>Step 2 </h4>
+          <img className="tutorialPNG" src="https://i.imgur.com/SrCrUpq.png" alt="" />
+          <p>
+            Open the app.Open the app's settings by pressing the ≡{" "}
+            button in the top-left corner of your screen.
+          </p>
+          <h4>Step 3</h4>
+          <img className="tutorialPNG" src="https://i.imgur.com/UW84nJO.png" alt="" />
+          <p>
+              Press the Offline Maps button within the settings menu; its icon looks like a cloud.
+          </p>
+          <h4>Step 4</h4>
+          <img className="tutorialPNG" src="https://i.imgur.com/7zz1qF2.png" alt="" />
+          <p>Then, press the Custom Map button.</p>
+          <h4>
+            Step 5
+          </h4>
+          <img className="tutorialPNG" src="https://i.imgur.com/9p21v7I.png" alt="" />
+          <p>
+              Finally, resize the boundaries of the map to cover the city of Tangier, and click the Download button at the bottom of the screen.
+          </p>
+        </div>
       </div>
     );
   }

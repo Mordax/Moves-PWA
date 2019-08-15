@@ -326,3 +326,16 @@ input {
 .post-content {
   margin-top: 100px;
 }
+
+.tutorialPNG {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 445px;
+}
+
+.wrapping {
+  margin-left: 10px;
+  margin-right: 10px;
+}
