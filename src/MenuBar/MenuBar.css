@@ -18,6 +18,10 @@
   margin: 0;
 }
 
+.green span {
+  color: #006233;
+}
+
 .navigation {
   text-transform: uppercase;
   font-size: 12px;
@@ -38,6 +42,10 @@
 
 .button img {
   width: 20px;
+}
+
+.empty-space {
+  height: 100px;
 }
 
 #language-button {
@@ -86,6 +94,15 @@ button:active {
   justify-content: center;
 }
 
+.Mlogo {
+  font-size: 35px;
+}
+
+@media (min-width: 520px) {
+  .Mlogo-wrapper {
+    display: none;
+  }
+}
 @media (max-width: 520px) {
   .MOVES-LOGO {
     padding-left: 10px;

@@ -100,12 +100,21 @@ class MenuBar extends React.Component {
       <>
         <div className="menu-wrapper">
           <div className="MOVES-LOGO">
-            <h1>
-              <b>MO:VES</b>
+            <h1 className="green">
+              <b>
+                MO<span>:</span>VES
+              </b>
             </h1>
             <h5>{t("Header")}</h5>
           </div>
           <ul className="navigation">
+            <li className="Mlogo-wrapper">
+              <h1 className="green Mlogo">
+                <b>
+                  M<span>:</span>
+                </b>
+              </h1>
+            </li>
             {/* <li>
               {" "}
               <button
@@ -128,16 +137,6 @@ class MenuBar extends React.Component {
                 EN
               </button>
             </li> */}
-
-            <li id="emergency-button">
-              <a className="button">
-                <img
-                  src="images/phone-receiver.svg"
-                  alt={t("EmergencyButton")}
-                />
-                EMERGENCY
-              </a>
-            </li>
 
             <li
               onClick={() => this.collapseAll()}
@@ -234,7 +233,15 @@ class MenuBar extends React.Component {
                 {this.getCurrentLanguageAndFlag()}
               </a>
             </li>
-
+            <li id="emergency-button">
+              <a className="button">
+                <img
+                  src="images/phone-receiver.svg"
+                  alt={t("EmergencyButton")}
+                />
+                EMERGENCY
+              </a>
+            </li>
             {/** This li is for the 3 bar menu toggle button */}
             <li id="menu-button">
               <div
@@ -249,7 +256,6 @@ class MenuBar extends React.Component {
             </li>
           </ul>
         </div>
-        <hr />
 
         <ul id="mobile-menu">
           <li onClick={() => this.collapseAll()}>
