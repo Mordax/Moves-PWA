@@ -85,29 +85,29 @@ class MenuBar extends React.Component {
               </a>
             </li>
             <Link to="/">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item" aria-label="Home">
                 {t('Home')}
               </li>
             </Link>
             <Link to="/help">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item" aria-label="Help">
                 {t('Help')}
               </li>
             </Link>
             <Link to="/information">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item" aria-label="Information">
                 {" "}
                 {t('Information')}
               </li>
             </Link>
             <Link to="/about">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item" aria-label="About">
                 {" "}
                 {t('About')}
               </li>
             </Link>
             <Link to="/contact">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item" aria-label="Contact">
                 {" "}
                 {t('Contact')}
               </li>
@@ -146,7 +146,7 @@ class MenuBar extends React.Component {
                 id="language-button"
                 onClick={e => this.showlanguage(e)}
               >
-                <img src="images/united-kingdom.svg" />
+                <img src="images/united-kingdom.svg" alt="UK flag" />
                 EN
               </a>
             </li>
