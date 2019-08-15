@@ -5,6 +5,13 @@ import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
 
 class MenuBar extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.dataManager = this.props.manager;
+    this.removeToken = this.dataManager.removeToken.bind(this);
+  }
+  
   shownav(u) {
     // Select And Icon and Togge "change class"
     let navIcon = document.getElementById("nav-icon");
@@ -106,24 +113,32 @@ class MenuBar extends React.Component {
               </li>
             </Link>
 
-            <Link to="/emergency">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
-                {" "}
-                {t('Emergency')}
-              </li>
-            </Link>
-            <Link to="/people">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
-                {" "}
-                {t('People')}
-              </li>
-            </Link>
-            <Link to="/alerts">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
-                {" "}
-                {t('Alerts')}
-              </li>
-            </Link>
+            { this.dataManager.tokenIsValid() ? 
+              <React.Fragment>
+                <Link to="/emergency">
+                  <li onClick={() => this.collapseAll()} className="navigation-item">
+                    {" "}
+                    {t('Emergency')}
+                  </li>
+                </Link>
+                <Link to="/people">
+                  <li onClick={() => this.collapseAll()} className="navigation-item">
+                    {" "}
+                    {t('People')}
+                  </li>
+                </Link>
+                <Link to="/alerts">
+                  <li onClick={() => this.collapseAll()} className="navigation-item">
+                    {" "}
+                    {t('Alerts')}
+                  </li>
+                </Link>
+                <Link to="" onClick={this.removeToken}><li>{t('Log out')}</li></Link>
+              </React.Fragment> 
+                :
+              <Link to="/login"><li onClick={() => this.collapseAll()}>{t('Log in')}</li></Link>
+                            
+            }
 
             <li>
               <a
@@ -158,9 +173,13 @@ class MenuBar extends React.Component {
           <Link to="/information"><li onClick={() => this.collapseAll()}>{t('Information')}</li></Link>
           <Link to="/about"><li onClick={() => this.collapseAll()}>{t('About')}</li></Link>
           <Link to="/contact"><li onClick={() => this.collapseAll()}>{t('Contact')}</li></Link>
-          <Link to="/emergency"><li onClick={() => this.collapseAll()}>{t('Emergency')}</li></Link>
-          <Link to="/people"><li onClick={() => this.collapseAll()}>{t('People')}</li></Link>
-          <Link to="/alerts"><li onClick={() => this.collapseAll()}>{t('Alerts')}</li></Link>
+          { this.dataManager.tokenIsValid() ? 
+            <React.Fragment>
+              <Link to="/emergency"><li onClick={() => this.collapseAll()}>{t('Emergency')}</li></Link>
+              <Link to="/people"><li onClick={() => this.collapseAll()}>{t('People')}</li></Link>
+              <Link to="/alerts"><li onClick={() => this.collapseAll()}>{t('Alerts')}</li></Link>
+              </React.Fragment> : <></>
+          }
         </ul>
 
         <ul id="language-menu">

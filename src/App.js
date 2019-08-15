@@ -1,8 +1,7 @@
 import React from "react";
 import "./style.css";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-import Header from "./Header/Header.js";
 import Menubar from "./MenuBar/MenuBar.js";
 import CellContainer from "./CellContainter/CellContainer.js";
 import Footer from "./Footer/Footer.js";
@@ -22,23 +21,14 @@ class App extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = {
-      loggedIn: false
-    }
-    this.setLoggedInState = this.setLoggedInState.bind(this)
-  }
-
-  setLoggedInState(state){
-    this.setState({
-      loggedIn: state
-    })
+    this.dataManager = require("./dataManager")()
   }
 
   render(){
     return (
       <div>        
       {/* <Header/> */}
-      <Menubar/>
+      <Menubar manager={this.dataManager}/>
 
       <Switch>
         <Route
@@ -50,10 +40,13 @@ class App extends React.Component {
         <Route exact path="/information" component={() => <Information />} />
         <Route exact path="/about" component={() => <About />} />
         <Route exact path="/contact" component={() => <ContactUs />} />
-        <Route exact path="/emergency" component={() => this.state.loggedIn ? <Emergency /> : <Login loggedInState={this.setLoggedInState}/>} />
-        <Route exact path="/people" component={() => this.state.loggedIn ? <People /> : <Login loggedInState={this.setLoggedInState}/>} />
-        <Route exact path="/alerts" component={() => this.state.loggedIn ? <Alert /> : <Login loggedInState={this.setLoggedInState}/> } />
-        <Route exact path ="/login" render = { () => ( <Login loggedInState={this.setLoggedInState}/> ) }/>
+        
+        <Route exact path="/emergency" component={() => this.dataManager.tokenIsValid() ? <Emergency /> : <></>} />
+        <Route exact path="/people" component={() => this.dataManager.tokenIsValid() ? <People manager={this.dataManager}/> : <></>} />
+        <Route exact path="/alerts" component={() => this.dataManager.tokenIsValid() ? <Alert /> : <></> } />
+        <Route exact path ="/login" render = {()=> ( 
+          this.dataManager.tokenIsValid() ? <Redirect to="/"/> :  <Login manager={this.dataManager} history={this.props.history}/>
+        )}/>
 
         {Content.map((r, k) => (
           <Route
@@ -66,9 +59,9 @@ class App extends React.Component {
 
       </Switch>
       <Footer />
-    </div>
+      </div>
     )
-      }
-}
+  }
 
+}
 export default App;
