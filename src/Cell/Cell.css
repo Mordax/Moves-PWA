@@ -1,48 +1,53 @@
 .square {
-    position: relative;
-    flex-basis: calc(50%);
-    background-color: #ebe8e8;
-    box-sizing: border-box;
-    border: 0.2px solid black;
-  }
-  
-  .square::before {
-    content: "";
-    display: block;
-    padding-top: 100%;
-  }
-  
-  .square .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .grid-item-text-box {
-    margin: 2vh;
-    padding: 1vh;
-    background-color: white;
-    border-radius: 10px;
-  }
-  
-  .circle {
-    width: 70%;
-    height: 70%;
-    border-radius: 50%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #006233;
-  }
-  
-  .circle img {
-    width: 60%;
-    height: 60%;
-  }
+  position: relative;
+  flex-basis: calc(50%);
+  background-color: #ebe8e8;
+  box-sizing: border-box;
+}
+
+.square::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.square .content {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content img {
+  pointer-events: none;
+  position: absolute;
+  width: full;
+  /* height: 100%; */
+  z-index: 1;
+}
+
+.grid-item-text-box {
+  margin: 2vh;
+  padding: 1vh;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.cell-text {
+  background-color: white;
+  font-size: 90%;
+  color: black;
+  z-index: 1;
+  padding: 1%;
+  font-family: "Playfair Display", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  text-align: center;
+}
