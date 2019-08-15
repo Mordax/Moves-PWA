@@ -53,7 +53,7 @@ class MenuBar extends React.Component {
             <h1>
               <b>MO:VES</b>
             </h1>
-            <h5>The Moroccan Volunteer Emergency Service</h5>
+            <h5>{t('Header')}</h5>
           </div>
           <ul className="navigation">
             {/* <li>
