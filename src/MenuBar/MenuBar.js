@@ -109,9 +109,11 @@ class MenuBar extends React.Component {
           </li>
 
           <div className="MOVES-LOGO">
-            <h1 className="green">
-              MO<span>:</span>VES
-            </h1>
+            <Link to="/" aria-label="Home">
+              <h1 className="green">
+                MO<span>:</span>VES
+              </h1>
+            </Link>
             <h5>{t("Header")}</h5>
           </div>
           <ul className="navigation">

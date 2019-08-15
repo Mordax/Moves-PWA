@@ -3,6 +3,11 @@
   padding-left: 30px;
 }
 
+.MOVES-LOGO a:hover {
+  color: black;
+  text-decoration: none;
+}
+
 .MOVES-LOGO h5 {
   font-weight: 100;
   margin: 0;
