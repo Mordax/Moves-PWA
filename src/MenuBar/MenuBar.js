@@ -103,7 +103,7 @@ class MenuBar extends React.Component {
             <Link to="/">
               {" "}
               <h1 className="green Mlogo">
-                M<span>:</span>
+                Moves<span>:</span>
               </h1>
             </Link>
           </li>
