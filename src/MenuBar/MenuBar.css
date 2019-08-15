@@ -24,8 +24,10 @@
   flex-basis: 80%;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-around;
   list-style: none;
+  padding: 0;
 }
 
 .button {
@@ -56,7 +58,12 @@
 }
 
 .navigation ul li {
-  font-size: 10px;
+}
+
+.navigation a {
+}
+
+.navigation-item {
 }
 
 .navigation a:hover {
@@ -79,6 +86,21 @@ button:active {
   justify-content: center;
 }
 
+@media (max-width: 520px) {
+  .MOVES-LOGO {
+    padding-left: 10px;
+    flex-basis: 10%;
+    display: none;
+  }
+
+  .navigation {
+    flex-basis: 100% !important;
+  }
+
+  .menu-wrapper {
+    width: 100vw !important;
+  }
+}
 @media (max-width: 600px) {
   .MOVES-LOGO h5 {
     display: none;
@@ -99,19 +121,20 @@ button:active {
   }
 
   .navigation {
-    flex-basis: 250px;
+    flex-basis: 50%;
   }
 }
 
 @media (min-width: 951px) {
-  .navigation-item {
-    display: inline;
-  }
   #emergency-button {
     display: none;
   }
   #menu-button {
     display: none;
+  }
+  .wide-item {
+    padding: 1%;
+    flex-basis: 2%;
   }
 
   .navigation {
