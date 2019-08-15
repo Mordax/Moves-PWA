@@ -1,7 +1,3 @@
-.mobile-overflow-switch {
-  overflow: hidden;
-}
-
 .MOVES-LOGO {
   flex-basis: 30%;
   padding-left: 30px;
@@ -18,8 +14,22 @@
   margin: 0;
 }
 
+.Mlogo-wrapper {
+  margin: 6%;
+  display: flex;
+}
+
+.Mlogo-wrapper a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.green {
+  font-family: Playfair Display, serif;
+}
+
 .green span {
-  color: #006233;
+  color: #28a745;
 }
 
 .navigation {
@@ -29,7 +39,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-end;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -42,7 +52,7 @@
 }
 
 .button img {
-  width: 20px;
+  width: 60%;
 }
 
 .empty-space {
@@ -52,10 +62,11 @@
 #language-button {
   width: 40px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
 #emergency-button {
-  background-color: #106535;
   padding: 5px;
 
   border-radius: 5px;
@@ -63,7 +74,7 @@
 }
 
 #emergency-button a {
-  color: white;
+  color: #28a745;
 }
 
 .navigation ul li {
@@ -99,6 +110,8 @@ button:active {
 
 .Mlogo {
   font-size: 35px;
+  font-family: Playfair Display, serif;
+  margin: 0;
 }
 
 @media (min-width: 520px) {
@@ -159,6 +172,10 @@ button:active {
     flex-basis: 15%;
   }
 
+  .square {
+    flex-basis: calc(33.3333333%) !important;
+  }
+
   .navigation {
     justify-content: center;
   }
@@ -192,6 +209,11 @@ button:active {
   margin-top: -80px;
 }
 
+#language-menu li {
+  color: black;
+  font-weight: 500;
+  padding: 0;
+}
 .show {
   position: fixed;
   display: flex !important;
@@ -213,17 +235,19 @@ button:active {
   list-style: none;
   text-align: center;
   font-weight: bold;
-  margin: 1vh;
+  padding: 0;
   font-size: 3.5vh;
 }
 
 #mobile-menu a {
   color: black;
+  font-size: 70%;
+  font-weight: 500;
 }
 #language-menu li {
   list-style: none;
   text-align: center;
-  font-weight: bold;
+
   margin: 1vh;
   font-size: 3.5vh;
 }
@@ -240,16 +264,15 @@ button:active {
 .bar1,
 .bar2,
 .bar3 {
-  width: 30px;
-  height: 5px;
+  width: 35px;
+  height: 2px;
   background-color: black;
   margin: 6px 0;
-  transition: 0.4s;
+  transition: 0.2s;
 }
 
 .change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
+  opacity: 0;
 }
 
 .change .bar2 {

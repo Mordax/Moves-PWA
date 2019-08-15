@@ -60,35 +60,35 @@ class MenuBar extends React.Component {
         return (
           <React.Fragment>
             <img src="images/united-kingdom.svg" alt="UK flag" />
-            EN
+            {/* EN */}
           </React.Fragment>
         );
       case "dk-DK":
         return (
           <React.Fragment>
             <img src="images/denmark.svg" alt="DK flag" />
-            DK
+            {/* DK */}
           </React.Fragment>
         );
       case "fr-FR":
         return (
           <React.Fragment>
             <img src="images/france.svg" alt="FR flag" />
-            FR
+            {/* FR */}
           </React.Fragment>
         );
       case "ar":
         return (
           <React.Fragment>
             <img src="images/morocco.svg" alt="MO flag" />
-            AR
+            {/* AR */}
           </React.Fragment>
         );
       default:
         return (
           <React.Fragment>
             <img src="images/united-kingdom.svg" alt="UK flag" />
-            EN
+            {/* EN */}
           </React.Fragment>
         );
     }
@@ -99,22 +99,22 @@ class MenuBar extends React.Component {
     return (
       <>
         <div className="menu-wrapper">
+          <li className="Mlogo-wrapper" onClick={() => this.collapseAll()}>
+            <Link to="/">
+              {" "}
+              <h1 className="green Mlogo">
+                M<span>:</span>
+              </h1>
+            </Link>
+          </li>
+
           <div className="MOVES-LOGO">
             <h1 className="green">
-              <b>
-                MO<span>:</span>VES
-              </b>
+              MO<span>:</span>VES
             </h1>
             <h5>{t("Header")}</h5>
           </div>
           <ul className="navigation">
-            <li className="Mlogo-wrapper">
-              <h1 className="green Mlogo">
-                <b>
-                  M<span>:</span>
-                </b>
-              </h1>
-            </li>
             {/* <li>
               {" "}
               <button
@@ -189,7 +189,7 @@ class MenuBar extends React.Component {
               </Link>
             </li>
 
-            {this.dataManager.tokenIsValid() ? (
+            {/* {this.dataManager.tokenIsValid() ? (
               <React.Fragment>
                 <li
                   onClick={() => this.collapseAll()}
@@ -219,28 +219,26 @@ class MenuBar extends React.Component {
                 </li>
               </React.Fragment>
             ) : (
-              <li className="wide-item" onClick={() => this.collapseAll()}>
+              <li
+                className="wide-item navigation-item"
+                onClick={() => this.collapseAll()}
+              >
                 <Link to="/login">{t("Log in")}</Link>
               </li>
-            )}
+            )} */}
 
-            <li>
+            <li className=" navigation-item">
               <a
-                className="button wide-item"
+                className="button "
                 id="language-button"
                 onClick={e => this.showlanguage(e)}
               >
                 {this.getCurrentLanguageAndFlag()}
               </a>
             </li>
+
             <li id="emergency-button">
-              <a className="button">
-                <img
-                  src="images/phone-receiver.svg"
-                  alt={t("EmergencyButton")}
-                />
-                EMERGENCY
-              </a>
+              <a className="button">EMERGENCY CALL</a>
             </li>
             {/** This li is for the 3 bar menu toggle button */}
             <li id="menu-button">
@@ -258,16 +256,49 @@ class MenuBar extends React.Component {
         </div>
 
         <ul id="mobile-menu">
+          <div className="empty-space" />
+          <li className="">
+            <a
+              className="button mobile-language-menu"
+              id="language-button"
+              onClick={e => this.showlanguage(e)}
+            >
+              {this.getCurrentLanguageAndFlag()}
+            </a>
+          </li>
+
+          {this.dataManager.tokenIsValid() ? (
+            <React.Fragment>
+              <li onClick={() => this.collapseAll()} className="">
+                <Link to="/emergency"> {t("Emergency")}</Link>
+              </li>
+
+              <li onClick={() => this.collapseAll()} className="">
+                <Link to="/people"> {t("People")}</Link>
+              </li>
+
+              <li onClick={() => this.collapseAll()} className="">
+                <Link to="/alerts"> {t("Alerts")}</Link>
+              </li>
+
+              <li>
+                <Link className="wide-item" to="" onClick={this.removeToken}>
+                  {t("Log out")}
+                </Link>
+              </li>
+            </React.Fragment>
+          ) : (
+            <li className="" onClick={() => this.collapseAll()}>
+              <Link to="/login">{t("Log in")}</Link>
+            </li>
+          )}
+
           <li onClick={() => this.collapseAll()}>
-            <Link to="/">{t("Home")}</Link>
+            <Link to="/information">{t("Information")} </Link>
           </li>
 
           <li onClick={() => this.collapseAll()}>
             <Link to="/help">{t("Help")}</Link>
-          </li>
-
-          <li onClick={() => this.collapseAll()}>
-            <Link to="/information">{t("Information")} </Link>
           </li>
 
           <li onClick={() => this.collapseAll()}>
@@ -298,7 +329,8 @@ class MenuBar extends React.Component {
         </ul>
 
         <ul id="language-menu">
-          <button
+          <div className="empty-space" />
+          <a
             onClick={() => {
               this.changeLanguage("en-CA");
               this.collapseAll();
@@ -310,8 +342,8 @@ class MenuBar extends React.Component {
               alt="UK flag"
             />
             <li>EN</li>
-          </button>
-          <button
+          </a>
+          <a
             onClick={() => {
               this.changeLanguage("dk-DK");
               this.collapseAll();
@@ -323,8 +355,8 @@ class MenuBar extends React.Component {
               alt="DK flag"
             />
             <li>DK</li>
-          </button>
-          <button
+          </a>
+          <a
             onClick={() => {
               this.changeLanguage("fr-FR");
               this.collapseAll();
@@ -336,8 +368,8 @@ class MenuBar extends React.Component {
               alt="FR flag"
             />
             <li>FR</li>
-          </button>
-          <button
+          </a>
+          <a
             onClick={() => {
               this.changeLanguage("ar");
               this.collapseAll();
@@ -349,7 +381,7 @@ class MenuBar extends React.Component {
               alt="MO flag"
             />
             <li>AR</li>
-          </button>
+          </a>
         </ul>
         <div className="empty-space" />
       </>
