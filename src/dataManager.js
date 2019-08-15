@@ -155,9 +155,15 @@ module.exports = function(){
             }
         },
     
-        // Still need to finish
         removeToken(){
-            console.log("log out")
+            // Make a transaction object that has "read and write" access to the tokenObjectStore
+            let transaction = dataBase.transaction("tokenObjectStore", "readwrite");
+            // Make a reference to the tokenObjectStore
+            let tokenObjectStore = transaction.objectStore("tokenObjectStore");
+            // Delete the token in objectStore, with key 1
+            tokenObjectStore.delete(1)
+            // Remove the token in localStorage, with key "token"
+            localStorage.removeItem("token")
         }
 
     }

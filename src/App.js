@@ -44,7 +44,7 @@ class App extends React.Component {
           <Route exact path="/alerts" component={() => this.dataManager.tokenIsValid() ? <Alert /> : <></> } />
           
           <Route exact path ="/api/useraccounts/login" render = {()=> ( 
-            this.dbManager.tokenIsValid() ? <Redirect to="/"/> :  <Login manager={this.dataManager} history={this.props.history}/>
+            this.dataManager.tokenIsValid() ? <Redirect to="/"/> :  <Login manager={this.dataManager} history={this.props.history}/>
           )}/>
 
           {
