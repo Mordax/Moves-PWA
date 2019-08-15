@@ -84,30 +84,30 @@ class MenuBar extends React.Component {
                 EMERGENCY
               </a>
             </li>
-            <Link to="/">
-              <li onClick={() => this.collapseAll()} className="navigation-item" aria-label="Home">
+            <Link to="/" aria-label="Home">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {t('Home')}
               </li>
             </Link>
-            <Link to="/help">
-              <li onClick={() => this.collapseAll()} className="navigation-item" aria-label="Help">
+            <Link to="/help" aria-label="Help">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {t('Help')}
               </li>
             </Link>
-            <Link to="/information">
-              <li onClick={() => this.collapseAll()} className="navigation-item" aria-label="Information">
+            <Link to="/information" aria-label="Information">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {" "}
                 {t('Information')}
               </li>
             </Link>
-            <Link to="/about">
-              <li onClick={() => this.collapseAll()} className="navigation-item" aria-label="About">
+            <Link to="/about" aria-label="About">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {" "}
                 {t('About')}
               </li>
             </Link>
-            <Link to="/contact">
-              <li onClick={() => this.collapseAll()} className="navigation-item" aria-label="Contact">
+            <Link to="/contact" aria-label="Contact">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {" "}
                 {t('Contact')}
               </li>
