@@ -37,7 +37,7 @@ class App extends React.Component {
   render(){
     return (
       <div>        
-      <Header/>
+      {/* <Header/> */}
       <Menubar/>
 
       <Switch>
@@ -58,7 +58,7 @@ class App extends React.Component {
         {Content.map((r, k) => (
           <Route
             exact
-            path={"/content/" + r.name}
+            path={"/content/" + r.slug}
             component={() => <GenericContent params={r} />}
             key={k}
           />

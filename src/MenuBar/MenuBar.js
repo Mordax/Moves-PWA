@@ -30,6 +30,13 @@ class MenuBar extends React.Component {
     y.classList.toggle("show");
   }
 
+  collapseAll() {
+    let m = document.getElementById("mobile-menu");
+    m.classList.remove("show");
+    let l = document.getElementById("language-menu");
+    l.classList.remove("show");
+  }
+
   render() {
     const { t } = this.props;
     return (
@@ -71,48 +78,48 @@ class MenuBar extends React.Component {
               </a>
             </li>
             <Link to="/">
-              <li className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {t('Home')}
               </li>
             </Link>
             <Link to="/help">
-              <li className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {t('Help')}
               </li>
             </Link>
             <Link to="/information">
-              <li className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {" "}
                 {t('Information')}
               </li>
             </Link>
             <Link to="/about">
-              <li className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {" "}
                 {t('About')}
               </li>
             </Link>
             <Link to="/contact">
-              <li className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {" "}
                 {t('Contact')}
               </li>
             </Link>
 
             <Link to="/emergency">
-              <li className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {" "}
                 {t('Emergency')}
               </li>
             </Link>
             <Link to="/people">
-              <li className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {" "}
                 {t('People')}
               </li>
             </Link>
             <Link to="/alerts">
-              <li className="navigation-item">
+              <li onClick={() => this.collapseAll()} className="navigation-item">
                 {" "}
                 {t('Alerts')}
               </li>
@@ -128,6 +135,8 @@ class MenuBar extends React.Component {
                 EN
               </a>
             </li>
+
+            {/** This li is for the 3 bar menu toggle button */}
             <li id="menu-button">
               <div
                 className="container"
@@ -144,21 +153,21 @@ class MenuBar extends React.Component {
         <hr />
 
         <ul id="mobile-menu">
-          <Link to="/"><li>{t('Home')}</li></Link>
-          <Link to="/help"><li>{t('Help')}</li></Link>
-          <Link to="/information"><li>{t('Information')}</li></Link>
-          <Link to="/about"><li>{t('About')}</li></Link>
-          <Link to="/contact"><li>{t('Contact')}</li></Link>
-          <Link to="/emergency"><li>{t('Emergency')}</li></Link>
-          <Link to="/people"><li>{t('People')}</li></Link>
-          <Link to="/alerts"><li>{t('Alerts')}</li></Link>
+          <Link to="/"><li onClick={() => this.collapseAll()}>{t('Home')}</li></Link>
+          <Link to="/help"><li onClick={() => this.collapseAll()}>{t('Help')}</li></Link>
+          <Link to="/information"><li onClick={() => this.collapseAll()}>{t('Information')}</li></Link>
+          <Link to="/about"><li onClick={() => this.collapseAll()}>{t('About')}</li></Link>
+          <Link to="/contact"><li onClick={() => this.collapseAll()}>{t('Contact')}</li></Link>
+          <Link to="/emergency"><li onClick={() => this.collapseAll()}>{t('Emergency')}</li></Link>
+          <Link to="/people"><li onClick={() => this.collapseAll()}>{t('People')}</li></Link>
+          <Link to="/alerts"><li onClick={() => this.collapseAll()}>{t('Alerts')}</li></Link>
         </ul>
 
         <ul id="language-menu">
-          <button onClick={() => i18next.changeLanguage('en')}><li>EN</li></button>
-          <button onClick={() => i18next.changeLanguage('dk')}><li>DK</li></button>
-          <button onClick={() => i18next.changeLanguage('fr')}><li>FR</li></button>
-          <button onClick={() => i18next.changeLanguage('ar')}><li>AR</li></button>
+          <button onClick={() => {i18next.changeLanguage('en'); this.collapseAll();}}><li>EN</li></button>
+          <button onClick={() => {i18next.changeLanguage('dk'); this.collapseAll();}}><li>DK</li></button>
+          <button onClick={() => {i18next.changeLanguage('fr'); this.collapseAll();}}><li>FR</li></button>
+          <button onClick={() => {i18next.changeLanguage('ar'); this.collapseAll();}}><li>AR</li></button>
         </ul>
       </>
     );

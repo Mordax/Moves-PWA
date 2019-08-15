@@ -39,7 +39,7 @@ class GenericContent extends Component {
     const markup = this.state._markup;
     console.log(markup);
     return(
-      <div dangerouslySetInnerHTML={{__html: markup}} />
+      <div className="post-content" dangerouslySetInnerHTML={{__html: markup}} />
     )
   }
 }

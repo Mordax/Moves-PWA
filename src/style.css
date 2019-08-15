@@ -321,3 +321,8 @@ input {
 }
 
 /* forms end */
+
+/* Move contents down */
+.post-content {
+  margin-top: 100px;
+}
