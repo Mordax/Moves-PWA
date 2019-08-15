@@ -7,6 +7,8 @@
     "Information": "Yderligere information",
     "About" : "Om os",
     "Contact": "Kontakt",
+    "Log in": "Log på",
+    "Log out": "Log ud",
     "Emergency": "Kontakt i nødstilfælde",
     "People": "Mennesker",
     "Alerts": "Meddelelser",
@@ -25,5 +27,8 @@
     "contentNames.importantPlace" : "Vigtige steder",
     "contentNames.hotel" : "Hotel flytning",
     "contentNames.thing" : "Tingen",
-    "contentNames.contact" : "Kontakt i nødstilfælde"
+    "contentNames.contact" : "Kontakt i nødstilfælde",
+
+    "Username": "Brugernavn",
+    "Password": "Adgangskode"
 }

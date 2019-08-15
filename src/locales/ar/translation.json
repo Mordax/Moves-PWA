@@ -7,6 +7,8 @@
     "Information": "مزيد من المعلومات",
     "About" : "معلومات عنا",
     "Contact": "اتصل",
+    "Log in": "تسجيل الدخول",
+    "Log out": "الخروج",
     "Emergency": "الاتصال بالطوارىء",
     "People": "اشخاص",
     "Alerts": "الإعلانات",
@@ -25,5 +27,8 @@
     "contentNames.importantPlace" : "اماكن مهمة",
     "contentNames.hotel" : "نقل فندق",
     "contentNames.thing" : "الشيء",
-    "contentNames.contact" : "الاتصال بالطوارىء"
+    "contentNames.contact" : "الاتصال بالطوارىء",
+
+    "Username": "اسم المستخدم",
+    "Password": "كلمه السر"
 }
