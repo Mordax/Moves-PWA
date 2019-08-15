@@ -1,19 +1,18 @@
 import React from "react";
 import "./MenuBar.css";
-import { Link } from 'react-router-dom';
-import { withTranslation } from 'react-i18next';
-import i18next from 'i18next';
-import client from '../LangClient';
+import { Link } from "react-router-dom";
+import { withTranslation } from "react-i18next";
+import i18next from "i18next";
+import client from "../LangClient";
 
 class MenuBar extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
     this.dataManager = this.props.manager;
     this.removeToken = this.dataManager.removeToken.bind(this);
     // this.client = client;
   }
-  
+
   shownav(u) {
     // Select And Icon and Togge "change class"
     let navIcon = document.getElementById("nav-icon");
@@ -48,8 +47,8 @@ class MenuBar extends React.Component {
 
   changeLanguage(lang) {
     i18next.changeLanguage(lang);
-    console.log('emitted ', lang);
-    client.emit('lang', lang);
+    console.log("emitted ", lang);
+    client.emit("lang", lang);
   }
 
   render() {
@@ -61,7 +60,7 @@ class MenuBar extends React.Component {
             <h1>
               <b>MO:VES</b>
             </h1>
-            <h5>{t('Header')}</h5>
+            <h5>{t("Header")}</h5>
           </div>
           <ul className="navigation">
             {/* <li>
@@ -88,69 +87,103 @@ class MenuBar extends React.Component {
             </li> */}
             <li id="emergency-button">
               <a className="button">
-                <img src="images/phone-receiver.svg" alt={t('EmergencyButton')} />
+                <img
+                  src="images/phone-receiver.svg"
+                  alt={t("EmergencyButton")}
+                />
                 EMERGENCY
               </a>
             </li>
-            <Link to="/" aria-label="Home">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
-                {t('Home')}
-              </li>
-            </Link>
-            <Link to="/help" aria-label="Help">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
-                {t('Help')}
-              </li>
-            </Link>
-            <Link to="/information" aria-label="Information">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
-                {" "}
-                {t('Information')}
-              </li>
-            </Link>
-            <Link to="/about" aria-label="About">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
-                {" "}
-                {t('About')}
-              </li>
-            </Link>
-            <Link to="/contact" aria-label="Contact">
-              <li onClick={() => this.collapseAll()} className="navigation-item">
-                {" "}
-                {t('Contact')}
-              </li>
-            </Link>
 
-            { this.dataManager.tokenIsValid() ? 
+            <li
+              onClick={() => this.collapseAll()}
+              className="navigation-item wide-item"
+            >
+              <Link to="/" aria-label="Home">
+                {t("Home")}
+              </Link>
+            </li>
+
+            <li
+              onClick={() => this.collapseAll()}
+              className="navigation-item wide-item"
+            >
+              {" "}
+              <Link to="/help" aria-label="Help">
+                {t("Help")}
+              </Link>
+            </li>
+
+            <li
+              onClick={() => this.collapseAll()}
+              className="navigation-item wide-item"
+            >
+              {" "}
+              <Link to="/information" aria-label="Information">
+                {" "}
+                {t("Information")}
+              </Link>
+            </li>
+
+            <li
+              onClick={() => this.collapseAll()}
+              className="navigation-item wide-item"
+            >
+              {" "}
+              <Link to="/about" aria-label="About">
+                {" "}
+                {t("About")}
+              </Link>
+            </li>
+
+            <li
+              onClick={() => this.collapseAll()}
+              className="navigation-item wide-item"
+            >
+              <Link to="/contact" aria-label="Contact">
+                {" "}
+                {t("Contact")}
+              </Link>
+            </li>
+
+            {this.dataManager.tokenIsValid() ? (
               <React.Fragment>
-                <Link to="/emergency">
-                  <li onClick={() => this.collapseAll()} className="navigation-item">
-                    {" "}
-                    {t('Emergency')}
-                  </li>
-                </Link>
-                <Link to="/people">
-                  <li onClick={() => this.collapseAll()} className="navigation-item">
-                    {" "}
-                    {t('People')}
-                  </li>
-                </Link>
-                <Link to="/alerts">
-                  <li onClick={() => this.collapseAll()} className="navigation-item">
-                    {" "}
-                    {t('Alerts')}
-                  </li>
-                </Link>
-                <Link to="" onClick={this.removeToken}><li>{t('Log out')}</li></Link>
-              </React.Fragment> 
-                :
-              <Link to="/login"><li onClick={() => this.collapseAll()}>{t('Log in')}</li></Link>
-                            
-            }
+                <li
+                  onClick={() => this.collapseAll()}
+                  className="navigation-item wide-item"
+                >
+                  <Link to="/emergency"> {t("Emergency")}</Link>
+                </li>
+
+                <li
+                  onClick={() => this.collapseAll()}
+                  className="navigation-item wide-item"
+                >
+                  <Link to="/people"> {t("People")}</Link>
+                </li>
+
+                <li
+                  onClick={() => this.collapseAll()}
+                  className="navigation-item wide-item"
+                >
+                  <Link to="/alerts"> {t("Alerts")}</Link>
+                </li>
+
+                <li>
+                  <Link className="wide-item" to="" onClick={this.removeToken}>
+                    {t("Log out")}
+                  </Link>
+                </li>
+              </React.Fragment>
+            ) : (
+              <li className="wide-item" onClick={() => this.collapseAll()}>
+                <Link to="/login">{t("Log in ")}</Link>
+              </li>
+            )}
 
             <li>
               <a
-                className="button"
+                className="button wide-item"
                 id="language-button"
                 onClick={e => this.showlanguage(e)}
               >
@@ -176,28 +209,81 @@ class MenuBar extends React.Component {
         <hr />
 
         <ul id="mobile-menu">
-          <Link to="/"><li onClick={() => this.collapseAll()}>{t('Home')}</li></Link>
-          <Link to="/help"><li onClick={() => this.collapseAll()}>{t('Help')}</li></Link>
-          <Link to="/information"><li onClick={() => this.collapseAll()}>{t('Information')}</li></Link>
-          <Link to="/about"><li onClick={() => this.collapseAll()}>{t('About')}</li></Link>
-          <Link to="/contact"><li onClick={() => this.collapseAll()}>{t('Contact')}</li></Link>
-          { this.dataManager.tokenIsValid() ? 
+          <li onClick={() => this.collapseAll()}>
+            <Link to="/">{t("Home")}</Link>
+          </li>
+
+          <li onClick={() => this.collapseAll()}>
+            <Link to="/help">{t("Help")}</Link>
+          </li>
+
+          <li onClick={() => this.collapseAll()}>
+            <Link to="/information">{t("Information")} </Link>
+          </li>
+
+          <li onClick={() => this.collapseAll()}>
+            <Link to="/about">{t("About")}</Link>
+          </li>
+
+          <li onClick={() => this.collapseAll()}>
+            <Link to="/contact">{t("Contact")} </Link>
+          </li>
+
+          {this.dataManager.tokenIsValid() ? (
             <React.Fragment>
-              <Link to="/emergency"><li onClick={() => this.collapseAll()}>{t('Emergency')}</li></Link>
-              <Link to="/people"><li onClick={() => this.collapseAll()}>{t('People')}</li></Link>
-              <Link to="/alerts"><li onClick={() => this.collapseAll()}>{t('Alerts')}</li></Link>
-              </React.Fragment> : <></>
-          }
+              <li onClick={() => this.collapseAll()}>
+                <Link to="/emergency">{t("Emergency")}</Link>
+              </li>
+
+              <li onClick={() => this.collapseAll()}>
+                <Link to="/people">{t("People")}</Link>
+              </li>
+
+              <li onClick={() => this.collapseAll()}>
+                <Link to="/alerts">{t("Alerts")}</Link>
+              </li>
+            </React.Fragment>
+          ) : (
+            <></>
+          )}
         </ul>
 
         <ul id="language-menu">
-          <button onClick={() => {this.changeLanguage('en-CA'); this.collapseAll();}}><li>EN</li></button>
-          <button onClick={() => {this.changeLanguage('dk-DK'); this.collapseAll();}}><li>DK</li></button>
-          <button onClick={() => {this.changeLanguage('fr-FR'); this.collapseAll();}}><li>FR</li></button>
-          <button onClick={() => {this.changeLanguage('ar'); this.collapseAll();}}><li>AR</li></button>
+          <button
+            onClick={() => {
+              this.changeLanguage("en-CA");
+              this.collapseAll();
+            }}
+          >
+            <li>EN</li>
+          </button>
+          <button
+            onClick={() => {
+              this.changeLanguage("dk-DK");
+              this.collapseAll();
+            }}
+          >
+            <li>DK</li>
+          </button>
+          <button
+            onClick={() => {
+              this.changeLanguage("fr-FR");
+              this.collapseAll();
+            }}
+          >
+            <li>FR</li>
+          </button>
+          <button
+            onClick={() => {
+              this.changeLanguage("ar");
+              this.collapseAll();
+            }}
+          >
+            <li>AR</li>
+          </button>
         </ul>
       </>
     );
   }
 }
-export default withTranslation() (MenuBar);
+export default withTranslation()(MenuBar);
