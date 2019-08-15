@@ -25,7 +25,7 @@ class MenuBar extends React.Component {
     let y = document.getElementById("mobile-menu");
     y.classList.toggle("show");
     //select body and apply overflow : hidden
-    var body = document.getElementsByTagName("BODY")[0];
+    // var body = document.getElementsByTagName("BODY")[0];
     // body.classList.toggle("mobile-overflow-switch");
   }
 
@@ -191,44 +191,6 @@ class MenuBar extends React.Component {
               </Link>
             </li>
 
-            {/* {this.dataManager.tokenIsValid() ? (
-              <React.Fragment>
-                <li
-                  onClick={() => this.collapseAll()}
-                  className="navigation-item wide-item"
-                >
-                  <Link to="/emergency"> {t("Emergency")}</Link>
-                </li>
-
-                <li
-                  onClick={() => this.collapseAll()}
-                  className="navigation-item wide-item"
-                >
-                  <Link to="/people"> {t("People")}</Link>
-                </li>
-
-                <li
-                  onClick={() => this.collapseAll()}
-                  className="navigation-item wide-item"
-                >
-                  <Link to="/alerts"> {t("Alerts")}</Link>
-                </li>
-
-                <li>
-                  <Link className="wide-item" to="" onClick={this.removeToken}>
-                    {t("Log out")}
-                  </Link>
-                </li>
-              </React.Fragment>
-            ) : (
-              <li
-                className="wide-item navigation-item"
-                onClick={() => this.collapseAll()}
-              >
-                <Link to="/login">{t("Log in")}</Link>
-              </li>
-            )} */}
-
             <li className=" navigation-item">
               <a
                 className="button "
@@ -239,9 +201,11 @@ class MenuBar extends React.Component {
               </a>
             </li>
 
-            <li id="emergency-button">
-              <a className="button">EMERGENCY CALL</a>
-            </li>
+            <Link to="/emergency">
+              <li id="emergency-button">
+                <a className="button">EMERGENCY CALL</a>
+              </li>
+            </Link>
             {/** This li is for the 3 bar menu toggle button */}
             <li id="menu-button">
               <div
@@ -268,6 +232,22 @@ class MenuBar extends React.Component {
               {this.getCurrentLanguageAndFlag()}
             </a>
           </li>
+          
+          <li onClick={() => this.collapseAll()}>
+            <Link to="/information">{t("Information")} </Link>
+          </li>
+
+          <li onClick={() => this.collapseAll()}>
+            <Link to="/help">{t("Help")}</Link>
+          </li>
+
+          <li onClick={() => this.collapseAll()}>
+            <Link to="/about">{t("About")}</Link>
+          </li>
+
+          <li onClick={() => this.collapseAll()}>
+            <Link to="/contact">{t("Contact")} </Link>
+          </li>
 
           {this.dataManager.tokenIsValid() ? (
             <React.Fragment>
@@ -293,40 +273,6 @@ class MenuBar extends React.Component {
             <li className="" onClick={() => this.collapseAll()}>
               <Link to="/login">{t("Log in")}</Link>
             </li>
-          )}
-
-          <li onClick={() => this.collapseAll()}>
-            <Link to="/information">{t("Information")} </Link>
-          </li>
-
-          <li onClick={() => this.collapseAll()}>
-            <Link to="/help">{t("Help")}</Link>
-          </li>
-
-          <li onClick={() => this.collapseAll()}>
-            <Link to="/about">{t("About")}</Link>
-          </li>
-
-          <li onClick={() => this.collapseAll()}>
-            <Link to="/contact">{t("Contact")} </Link>
-          </li>
-
-          {this.dataManager.tokenIsValid() ? (
-            <React.Fragment>
-              <li onClick={() => this.collapseAll()}>
-                <Link to="/emergency">{t("Emergency")}</Link>
-              </li>
-
-              <li onClick={() => this.collapseAll()}>
-                <Link to="/people">{t("People")}</Link>
-              </li>
-
-              <li onClick={() => this.collapseAll()}>
-                <Link to="/alerts">{t("Alerts")}</Link>
-              </li>
-            </React.Fragment>
-          ) : (
-            <></>
           )}
         </ul>
 
