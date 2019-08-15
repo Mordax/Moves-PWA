@@ -12,7 +12,7 @@ self.addEventListener('message', (event) => {
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('runtime').then(function(cache) {
-      return cache.addAll(
+      cache.addAll(
         [
           "https://moves-backend-a.herokuapp.com/api/content/slug/legal",
           "https://moves-backend-a.herokuapp.com/api/content/slug/thing",
