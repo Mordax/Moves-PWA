@@ -2,24 +2,44 @@ import React, { Component } from "react";
 import "./GenericContent.css";
 import { withTranslation } from 'react-i18next';
 import i18n from 'i18next';
+import client from '../LangClient';
 
 class GenericContent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      // Short name of the content piece
-      _name: this.props.params.name,
-      // A better worded name of the content
-      _fullName: this.props.params.fullName,
-      // Page title of the full content component
-      _title: this.props.params.title,
-      // URL to the icon of the content component
-      _icon: this.props.params.icon,
-      // Route for retriving text-content (HTML piece) of the content component
-      _content: this.props.params.content,
-      _base: 'https://moves-backend-a.herokuapp.com',
-      _markup : '',
-      _data: []
+
+    if (props.params) {
+      this.state = {
+        _slug: this.props.params.slug,
+        _fullName: this.props.params.fullName,
+        _title: this.props.params.title,
+        _icon: this.props.params.icon,
+        _content: this.props.params.content,
+        _base: 'https://moves-backend-a.herokuapp.com',
+        _markup : '',
+        _data: []
+      }
+    } else {
+      this.state = {
+        _slug: this.props.normal.slug,
+        _content: this.props.normal.content,
+        _base: 'https://moves-backend-a.herokuapp.com',
+        _markup : '',
+        _data: []
+      }
+    }
+    
+    this.toggleLanguage = this.toggleLanguage.bind(this);
+  }
+
+  toggleLanguage(lang) {
+    let ln = i18n.language;
+    if (lang !== '') ln = lang;
+    for(var i = 0, l = this.state._data.length; i < l; i++) {
+      if (this.state._data[i].language === ln) {
+        this.setState({_markup: this.state._data[i].content});
+        return;
+      }
     }
   }
 
@@ -27,20 +47,19 @@ class GenericContent extends Component {
     fetch(this.state._base + this.state._content)
     .then(res => res.json())
     .then(data => {
-      this.setState({_data: data.data}, () => this.toggleLanguage());
+      this.setState({_data: data.data}, () => this.toggleLanguage(''));
     })
     .catch(e => console.log(e));
+
+    const self = this;
+    this.eventEmitter = client.addListener('lang', function(data) {
+      console.log('received ', data);
+      self.toggleLanguage(data);
+    });
   }
 
-  toggleLanguage() {
-    const ln = i18n.language;
-    console.log(ln);
-    console.log(this.state._data.map(c => c.language));
-    for(var i = 0, l = this.state._data.length; i < l; i++) {
-      if (this.state._data[i].language === ln) {
-        this.setState({_markup: this.state._data[i].content});
-      }
-    }
+  componentWillUnmount() {
+    
   }
 
   render() {

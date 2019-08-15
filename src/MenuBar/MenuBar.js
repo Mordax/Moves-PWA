@@ -3,6 +3,7 @@ import "./MenuBar.css";
 import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import client from '../LangClient';
 
 class MenuBar extends React.Component {
 
@@ -10,6 +11,7 @@ class MenuBar extends React.Component {
     super(props);
     this.dataManager = this.props.manager;
     this.removeToken = this.dataManager.removeToken.bind(this);
+    // this.client = client;
   }
   
   shownav(u) {
@@ -42,6 +44,12 @@ class MenuBar extends React.Component {
     m.classList.remove("show");
     let l = document.getElementById("language-menu");
     l.classList.remove("show");
+  }
+
+  changeLanguage(lang) {
+    i18next.changeLanguage(lang);
+    console.log('emitted ', lang);
+    client.emit('lang', lang);
   }
 
   render() {
@@ -183,10 +191,10 @@ class MenuBar extends React.Component {
         </ul>
 
         <ul id="language-menu">
-          <button onClick={() => {i18next.changeLanguage('en-CA'); this.collapseAll();}}><li>EN</li></button>
-          <button onClick={() => {i18next.changeLanguage('dk-DK'); this.collapseAll();}}><li>DK</li></button>
-          <button onClick={() => {i18next.changeLanguage('fr-FR'); this.collapseAll();}}><li>FR</li></button>
-          <button onClick={() => {i18next.changeLanguage('ar'); this.collapseAll();}}><li>AR</li></button>
+          <button onClick={() => {this.changeLanguage('en-CA'); this.collapseAll();}}><li>EN</li></button>
+          <button onClick={() => {this.changeLanguage('dk-DK'); this.collapseAll();}}><li>DK</li></button>
+          <button onClick={() => {this.changeLanguage('fr-FR'); this.collapseAll();}}><li>FR</li></button>
+          <button onClick={() => {this.changeLanguage('ar'); this.collapseAll();}}><li>AR</li></button>
         </ul>
       </>
     );

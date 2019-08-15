@@ -6,10 +6,6 @@ import Menubar from "./MenuBar/MenuBar.js";
 import CellContainer from "./CellContainter/CellContainer.js";
 import Footer from "./Footer/Footer.js";
 import GenericContent from "./GenericContent/GenericContent.js";
-import Help from "./Help/Help.js";
-import Information from "./Information/Information.js";
-import About from "./About/About.js";
-import ContactUs from "./ContactUs/ContactUs.js";
 import Emergency from "./Emergency/Emergency.js";
 import People from "./People/People.js";
 import Alert from "./Alert/Alert.js";
@@ -36,10 +32,10 @@ class App extends React.Component {
           path="/"
           component={() => <CellContainer content={Content} />}
         />
-        <Route exact path="/help" component={() => <Help />} />
-        <Route exact path="/information" component={() => <Information />} />
-        <Route exact path="/about" component={() => <About />} />
-        <Route exact path="/contact" component={() => <ContactUs />} />
+        <Route exact path="/help" component={() => <GenericContent normal={{slug: 'help', content: '/api/content/slug/help'}}/>} />
+        <Route exact path="/information" component={() => <GenericContent normal={{slug: 'information', content: '/api/content/slug/information'}}/>} />
+        <Route exact path="/about" component={() => <GenericContent normal={{slug: 'about', content: '/api/content/slug/about'}}/>} />
+        <Route exact path="/contact" component={() => <GenericContent normal={{slug: 'contactus', content: '/api/content/slug/contactus'}}/>} />
         
         <Route exact path="/emergency" component={() => this.dataManager.tokenIsValid() ? <Emergency /> : <></>} />
         <Route exact path="/people" component={() => this.dataManager.tokenIsValid() ? <People manager={this.dataManager}/> : <></>} />
@@ -57,6 +53,7 @@ class App extends React.Component {
           />
         ))}
 
+        <Route path="*" render={() => ( <Redirect to="/"/> )}/>
       </Switch>
       <Footer />
       </div>
