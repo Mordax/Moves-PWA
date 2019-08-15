@@ -17,12 +17,9 @@ class Cell extends React.Component {
   render() {
     return (
       <>
-        <div className="circle">
-          <img src={this.state.icon} alt="" />
-        </div>
-        <div className="grid-item-text-box">
-          <h3>{this.state.fullName}</h3>
-        </div>
+        <img src={this.state.icon} alt="" />
+
+        <h3 className="cell-text">{this.state.fullName}</h3>
       </>
     );
   }

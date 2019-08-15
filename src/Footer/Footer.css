@@ -1,15 +1,23 @@
 footer {
-    text-align: center;
-    background-color: #3f3c3c;
-    color: white;
-    padding-top: 2vh;
-    padding-bottom: 2vh;
-  }
-  
-  footer h2 {
-    margin-top: 0;
-  }
-  
-  footer p {
-    margin-bottom: 0;
-  }
+  justify-content: center;
+  /* width: 100%; */
+  text-align: center;
+  color: black;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 5%;
+}
+
+footer h2 {
+  margin-top: 0;
+}
+
+footer p {
+  margin-bottom: 0;
+  width: 70%;
+}

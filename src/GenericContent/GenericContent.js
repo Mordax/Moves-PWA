@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
+import "./GenericContent.css";
 
 class GenericContent extends Component {
-
   constructor(props) {
     super(props);
     this.state = {

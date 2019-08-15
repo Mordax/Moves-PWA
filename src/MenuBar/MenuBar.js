@@ -1,70 +1,167 @@
-import React from 'react';
+import React from "react";
 import "./MenuBar.css";
 import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import i18next from 'i18next';
 
 class MenuBar extends React.Component {
+  shownav(u) {
+    // Select And Icon and Togge "change class"
+    let navIcon = document.getElementById("nav-icon");
+    navIcon.classList.toggle("change");
+    //select a language menu, and remove its "show class"
+    let z = document.getElementById("language-menu");
+    z.classList.remove("show");
+    //select a mobile-meniu and show it
+    let y = document.getElementById("mobile-menu");
+    y.classList.toggle("show");
+    //select body and apply overflow : hidden
+    var body = document.getElementsByTagName("BODY")[0];
+    body.classList.toggle("mobile-overflow-switch");
+  }
 
-    shownav(x) {
-        x.target.classList.toggle("change");
-        let z = document.getElementById("language-menu");
-        z.classList.remove("show");
-        let y = document.getElementById("mobile-menu");
-        y.classList.toggle("show");
-    }
+  showlanguage(x) {
+    x.target.classList.toggle("change");
+    let z = document.getElementById("mobile-menu");
+    z.classList.remove("show");
+    let navIcon = document.getElementById("nav-icon");
+    navIcon.classList.remove("change");
+    let y = document.getElementById("language-menu");
+    y.classList.toggle("show");
+  }
 
-    showlanguage(x) {
-        x.target.classList.toggle("change");
-        let z = document.getElementById("mobile-menu");
-        z.classList.remove("show");
-        let y = document.getElementById("language-menu");
-        y.classList.toggle("show");
-    }
+  render() {
+    const { t } = this.props;
+    return (
+      <>
+        <div className="menu-wrapper">
+          <div className="MOVES-LOGO">
+            <h1>
+              <b>MO:VES</b>
+            </h1>
+            <h5>The Moroccan Volunteer Emergency Service</h5>
+          </div>
+          <ul className="navigation">
+            {/* <li>
+              {" "}
+              <button
+                id="language-button"
+                className="button"
+                onClick={e => this.showlanguage(e)}
+              >
+                <img src="images/united-kingdom.svg" />
+                EN
+              </button>
+            </li>
+            <li>
+              {" "}
+              <button
+                id="emergency-button"
+                className="button"
+                onClick={e => this.showlanguage(e)}
+              >
+                <img src="images/united-kingdom.svg" />
+                EN
+              </button>
+            </li> */}
+            <li id="emergency-button">
+              <a className="button">
+                <img src="images/phone-receiver.svg" alt={t('EmergencyButton')} />
+                EMERGENCY
+              </a>
+            </li>
+            <Link to="/">
+              <li className="navigation-item">
+                {t('Home')}
+              </li>
+            </Link>
+            <Link to="/help">
+              <li className="navigation-item">
+                {t('Help')}
+              </li>
+            </Link>
+            <Link to="/information">
+              <li className="navigation-item">
+                {" "}
+                {t('Information')}
+              </li>
+            </Link>
+            <Link to="/about">
+              <li className="navigation-item">
+                {" "}
+                {t('About')}
+              </li>
+            </Link>
+            <Link to="/contact">
+              <li className="navigation-item">
+                {" "}
+                {t('Contact')}
+              </li>
+            </Link>
 
-    render(){
-        const { t } = this.props;
-        return (
-            <div>
-                <div className="menu-wrapper">
-                    <button onClick={((e) => this.showlanguage(e))}>{t('Choose Language')}</button>
-                    <button id="menu-button" onClick={((e) => this.shownav(e))}>
-                        <div className="container">
-                            <div className="bar1"></div>
-                            <div className="bar2"></div>
-                            <div className="bar3"></div>
-                        </div>
-                    </button>
-                </div>
-                <hr />
+            <Link to="/emergency">
+              <li className="navigation-item">
+                {" "}
+                {t('Emergency')}
+              </li>
+            </Link>
+            <Link to="/people">
+              <li className="navigation-item">
+                {" "}
+                {t('People')}
+              </li>
+            </Link>
+            <Link to="/alerts">
+              <li className="navigation-item">
+                {" "}
+                {t('Alerts')}
+              </li>
+            </Link>
 
-                <ul id="mobile-menu">
-                    <Link to="/"><li>{t('Home')}</li></Link>
-                    <Link to="/help"><li>{t('Help')}</li></Link>
-                    <Link to="/information"><li>{t('Information')}</li></Link>
-                    <Link to="/about"><li>{t('About')}</li></Link>
-                    <Link to="/contact"><li>{t('Contact')}</li></Link>
-                    <Link to="/emergency"><li>{t('Emergency')}</li></Link>
-                    <Link to="/people"><li>{t('People')}</li></Link>
-                    <Link to="/alerts"><li>{t('Alerts')}</li></Link>
-                </ul>
+            <li>
+              <a
+                className="button"
+                id="language-button"
+                onClick={e => this.showlanguage(e)}
+              >
+                <img src="images/united-kingdom.svg" />
+                EN
+              </a>
+            </li>
+            <li id="menu-button">
+              <div
+                className="container"
+                id="nav-icon"
+                onClick={u => this.shownav(u)}
+              >
+                <div className="bar1" />
+                <div className="bar2" />
+                <div className="bar3" />
+              </div>
+            </li>
+          </ul>
+        </div>
+        <hr />
 
-                <ul id="language-menu">
-                    <button onClick={() => i18next.changeLanguage('en')}><li>EN</li></button>
-                    <button onClick={() => i18next.changeLanguage('dk')}><li>DK</li></button>
-                    <button onClick={() => i18next.changeLanguage('fr')}><li>FR</li></button>
-                    <button onClick={() => i18next.changeLanguage('ar')}><li>AR</li></button>
-                </ul>
+        <ul id="mobile-menu">
+          <Link to="/"><li>{t('Home')}</li></Link>
+          <Link to="/help"><li>{t('Help')}</li></Link>
+          <Link to="/information"><li>{t('Information')}</li></Link>
+          <Link to="/about"><li>{t('About')}</li></Link>
+          <Link to="/contact"><li>{t('Contact')}</li></Link>
+          <Link to="/emergency"><li>{t('Emergency')}</li></Link>
+          <Link to="/people"><li>{t('People')}</li></Link>
+          <Link to="/alerts"><li>{t('Alerts')}</li></Link>
+        </ul>
 
-                <div className="grid-presentation">
-                    <h2>{t('We can help you with')}: <br /></h2>
-                    <h3>{t('Our help is free')}</h3>
-                </div>
-
-            </div>
-        )
-    }
-
-  
+        <ul id="language-menu">
+          <button onClick={() => i18next.changeLanguage('en')}><li>EN</li></button>
+          <button onClick={() => i18next.changeLanguage('dk')}><li>DK</li></button>
+          <button onClick={() => i18next.changeLanguage('fr')}><li>FR</li></button>
+          <button onClick={() => i18next.changeLanguage('ar')}><li>AR</li></button>
+        </ul>
+      </>
+    );
+  }
 }
 export default withTranslation() (MenuBar);
