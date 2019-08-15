@@ -10,13 +10,13 @@ i18n
     .use(initReactI18next)
     .init({
         resources: {
-            en: {
+            "en-CA": {
                 translation: English
             },
-            dk: {
+            "dk-DK": {
                 translation: Danish
             },
-            fr: {
+            "fr-FR": {
                 translation: French
             },
             ar: {
@@ -24,9 +24,9 @@ i18n
             }
         },
         fallbackLng: "en",
-
+        whitelist: ['en-CA', 'dk-DK', 'fr-FR', 'ar'],
         keySeparator: false,
-
+        lng: 'en-CA',
         interpolation: {
             escapeValue: false
         }

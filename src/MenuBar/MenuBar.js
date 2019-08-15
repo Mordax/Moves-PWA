@@ -183,9 +183,9 @@ class MenuBar extends React.Component {
         </ul>
 
         <ul id="language-menu">
-          <button onClick={() => {i18next.changeLanguage('en'); this.collapseAll();}}><li>EN</li></button>
-          <button onClick={() => {i18next.changeLanguage('dk'); this.collapseAll();}}><li>DK</li></button>
-          <button onClick={() => {i18next.changeLanguage('fr'); this.collapseAll();}}><li>FR</li></button>
+          <button onClick={() => {i18next.changeLanguage('en-CA'); this.collapseAll();}}><li>EN</li></button>
+          <button onClick={() => {i18next.changeLanguage('dk-DK'); this.collapseAll();}}><li>DK</li></button>
+          <button onClick={() => {i18next.changeLanguage('fr-FR'); this.collapseAll();}}><li>FR</li></button>
           <button onClick={() => {i18next.changeLanguage('ar'); this.collapseAll();}}><li>AR</li></button>
         </ul>
       </>

@@ -3,9 +3,9 @@
     	"order": 1,
     	"slug": "legal",
     	"fullName": "Laws and traditions",
-      	"title": "Laws, by-laws and traditions",
-      	"icon": "/images/faq.png",
-      	"content": "/api/content/slug/legal"
+      "title": "Laws, by-laws and traditions",
+      "icon": "/images/faq.png",
+      "content": "/api/content/slug/legal"
     },
     {
       "order": 2,
