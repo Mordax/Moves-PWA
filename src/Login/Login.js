@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Login.css";
 import { withTranslation } from 'react-i18next';
+import { withRouter } from 'react-router-dom';
 
 class Login extends React.Component {
 
@@ -70,7 +71,12 @@ class Login extends React.Component {
                         })
                     ]);
                 });
-                this.props.history.goBack();
+                if(this.props.location.state.referrer) {
+                    this.props.history.push(this.props.location.state.referrer);
+                }
+                else {
+                    this.props.history.goBack();
+                }
             } else {
                 window.confirm('You have the wrong username/password');
             }
@@ -96,4 +102,4 @@ class Login extends React.Component {
     }
 
 }
-export default withTranslation() (Login);
+export default withRouter(withTranslation() (Login));

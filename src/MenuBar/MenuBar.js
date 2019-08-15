@@ -233,15 +233,18 @@ class MenuBar extends React.Component {
                 {this.getCurrentLanguageAndFlag()}
               </a>
             </li>
-            <li id="emergency-button">
-              <a className="button">
+
+            <Link to="/emergency">
+            <li id="emergency-button" className="button">
+              
                 <img
                   src="images/phone-receiver.svg"
                   alt={t("EmergencyButton")}
                 />
                 EMERGENCY
-              </a>
+              
             </li>
+            </Link>
             {/** This li is for the 3 bar menu toggle button */}
             <li id="menu-button">
               <div

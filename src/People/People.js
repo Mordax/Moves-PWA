@@ -29,7 +29,6 @@ class People extends React.Component {
   render() {
     return (
       <div>
-        <h1>This is the GUARDED page of People list</h1>
         {
           // temporary just for testing
           this.state.people ?

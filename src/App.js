@@ -22,10 +22,6 @@ class App extends React.Component {
     this.dataManager = require("./dataManager")()
   }
 
-  componentWillUnmount() {
-    this.dataManager.removeToken();
-  }
-
   render(){
     return (
       <div>        
@@ -43,9 +39,24 @@ class App extends React.Component {
         <Route exact path="/about" component={() => <GenericContent normal={{slug: 'about', content: '/api/content/slug/about'}}/>} />
         <Route exact path="/contact" component={() => <GenericContent normal={{slug: 'contactus', content: '/api/content/slug/contactus'}}/>} />
 
-        <Route exact path="/emergency" component={() => this.dataManager.tokenIsValid() ? <Emergency /> : <></>} />
-        <Route exact path="/people" component={() => this.dataManager.tokenIsValid() ? <People manager={this.dataManager}/> : <></>} />
-        <Route exact path="/alerts" component={() => this.dataManager.tokenIsValid() ? <Alert /> : <></> } />
+        <Route exact path="/emergency" component={() => this.dataManager.tokenIsValid() ? <Emergency /> : <Redirect
+          to={{
+            pathname: "/login",
+            state: { referrer: '/emergency' }
+          }}
+        />} />
+        <Route exact path="/people" component={() => this.dataManager.tokenIsValid() ? <People manager={this.dataManager}/> : <Redirect
+          to={{
+            pathname: "/login",
+            state: { referrer: '/people' }
+          }}
+        />} />
+        <Route exact path="/alerts" component={() => this.dataManager.tokenIsValid() ? <Alert /> : <Redirect
+          to={{
+            pathname: "/login",
+            state: { referrer: '/alerts' }
+          }}
+        />} />
         <Route exact path ="/login" render = {()=> ( 
           this.dataManager.tokenIsValid() ? <Redirect to="/"/> :  <Login manager={this.dataManager} history={this.props.history}/>
         )}/>
