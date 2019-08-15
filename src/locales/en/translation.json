@@ -20,5 +20,13 @@
     "Free" : "Free and Confidential",
     "Mission Blurb" : "and be open from the beginning of 2020, from there we will always be open to our volunteers' calls or emails if they or anyone they know requires help. We therefore aspire to offer this service by sponsorships and hope to receive widespread support of our work to build a stronger civil community - not only in Tanger, but the rest of Morocco- with the help of the local, national and international associations.",
 
-    "EmergencyButton": "Call for help"
+    
+    "EmergencyButton": "Call for help",
+
+
+    "contentNames.legal" : "Laws and traditions",
+    "contentNames.importantPlace" : "Important places",
+    "contentNames.hotel" : "Hotel relocation",
+    "contentNames.thing" : "The thing",
+    "contentNames.contact" : "Emergency Contact"
 }
