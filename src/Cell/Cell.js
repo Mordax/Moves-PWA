@@ -6,12 +6,12 @@ class Cell extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      order: this.props.params.order,
+      // order: this.props.params.order,
       slug: this.props.params.slug,
-      fullName: this.props.params.fullName,
-      title: this.props.params.title,
+      // fullName: this.props.params.fullName,
+      // title: this.props.params.title,
       icon: this.props.params.icon,
-      content: this.props.params.content
+      // content: this.props.params.content
     };
   }
 

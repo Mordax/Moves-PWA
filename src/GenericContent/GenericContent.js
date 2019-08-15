@@ -44,24 +44,23 @@ class GenericContent extends Component {
   }
 
   componentDidMount() {
-    fetch(this.state._base + this.state._content)
-    .then(res => res.json())
-    .then(data => {
-      this.setState({_data: data.data}, () => this.toggleLanguage(''));
-    })
-    .catch(e => console.log(e));
+    if(this.state._content) {
+      fetch(this.state._base + this.state._content)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({_data: data.data}, () => this.toggleLanguage(''));
+      })
+      .catch(e => console.log(e));
 
-    const self = this;
-    this.eventEmitter = client.addListener('lang', function(data) {
-      console.log('received ', data);
-      self.toggleLanguage(data);
-    });
-  }
-
-  componentWillUnmount() {
+      const self = this;
+      this.eventEmitter = client.addListener('lang', function(data) {
+        console.log('received ', data);
+        self.toggleLanguage(data);
+      });
+    }
     
   }
-
+  
   render() {
     const markup = this.state._markup;
     return(

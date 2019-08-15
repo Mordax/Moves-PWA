@@ -28,6 +28,7 @@
     "contentNames.hotel" : "نقل فندق",
     "contentNames.thing" : "الشيء",
     "contentNames.contact" : "الاتصال بالطوارىء",
+    "contentNames.geolocation": "دعم خريطة حاليا",
 
     "Username": "اسم المستخدم",
     "Password": "كلمه السر"

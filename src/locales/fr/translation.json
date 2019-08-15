@@ -28,6 +28,7 @@
     "contentNames.hotel" : "Relocalisation d'hôtel",
     "contentNames.thing" : "La chose",
     "contentNames.contact" : "Personne à contacter en cas d'urgence",
+    "contentNames.geolocation": "Support de carte hors ligne",
     
 
     "Username": "Nom d'utilisateur",

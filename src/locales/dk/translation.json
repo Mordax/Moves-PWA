@@ -28,6 +28,7 @@
     "contentNames.hotel" : "Hotel flytning",
     "contentNames.thing" : "Tingen",
     "contentNames.contact" : "Kontakt i nødstilfælde",
+    "contentNames.geolocation": "Offline kortstøtte",
 
     "Username": "Brugernavn",
     "Password": "Adgangskode"

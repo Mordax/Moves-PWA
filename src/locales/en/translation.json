@@ -30,5 +30,6 @@
     "contentNames.importantPlace" : "Important places",
     "contentNames.hotel" : "Hotel relocation",
     "contentNames.thing" : "The thing",
-    "contentNames.contact" : "Emergency Contact"
+    "contentNames.contact" : "Emergency Contact",
+    "contentNames.geolocation": "Offline map support"
 }

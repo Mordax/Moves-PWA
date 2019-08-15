@@ -136,12 +136,12 @@ button:active {
 
 #mobile-menu {
   margin-top: -50px;
-  display: flex;
+  display: none;
   transition: 0.4s;
 }
 
 #language-menu {
-  display: flex;
+  display: none;
   transition: 0.4s;
   margin-top: -80px;
 }
