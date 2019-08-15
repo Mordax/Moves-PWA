@@ -1,0 +1,18 @@
+.peopleItem {
+    margin: 10px;
+    border: 1px solid black;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.peopleItem h4 {
+    padding-left: 10px;
+    margin: 3px;
+}
+
+.peopleItem p {
+    padding-left: 10px;
+    margin: 3px;
+}

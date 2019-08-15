@@ -12,7 +12,7 @@ self.addEventListener('message', (event) => {
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('runtime').then(function(cache) {
-      return cache.addAll(
+      cache.addAll(
         [
           "https://moves-backend-a.herokuapp.com/api/content/slug/legal",
           "https://moves-backend-a.herokuapp.com/api/content/slug/thing",
@@ -38,7 +38,7 @@ workbox.routing.registerRoute(
 
 // Runtime cache all announcements
 workbox.routing.registerRoute(
-  new RegExp('https://moves-backend-a.herokuapp.com/api/announcement/*'),
+  new RegExp('https://moves-backend-a.herokuapp.com/api/announcement/active'),
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'runtime',
   })
@@ -47,6 +47,14 @@ workbox.routing.registerRoute(
 // Runtime cache all personnel
 workbox.routing.registerRoute(
   new RegExp('https://moves-backend-a.herokuapp.com/api/personnel/*'),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'runtime',
+  })
+);
+
+// Runtime cache for phone numbers from team C
+workbox.routing.registerRoute(
+  new RegExp('https://movesws-teamc-baa.herokuapp.com/api/phoneNumber/*'),
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'runtime',
   })
