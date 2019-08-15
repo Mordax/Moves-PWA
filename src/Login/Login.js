@@ -35,7 +35,13 @@ class Login extends React.Component {
         event.preventDefault();
         // Call dataManager logIn, if successfulLogIn then go back one page, if not show error
         this.props.manager.logIn(this.state.userName, this.state.password).then(successfulLogIn => {
-            successfulLogIn ? this.props.history.goBack() : this.showLogInError()
+
+            if(successfulLogIn) {
+                this.props.history.goBack()
+            } else {
+                window.confirm('You have the wrong username/password');
+            }
+            // successfulLogIn ? this.props.history.goBack() : this.showLogInError()
         })
     }
 

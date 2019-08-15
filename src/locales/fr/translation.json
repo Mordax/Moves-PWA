@@ -32,5 +32,8 @@
     
 
     "Username": "Nom d'utilisateur",
-    "Password": "Mot de passe"
+    "Password": "Mot de passe",
+
+    "moroccoCallCenter": "Centre d'appel marocain",
+    "denmarkCallCenter": "Centre d'appel du Danemark"
 }

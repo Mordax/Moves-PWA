@@ -31,5 +31,8 @@
     "contentNames.geolocation": "دعم خريطة حاليا",
 
     "Username": "اسم المستخدم",
-    "Password": "كلمه السر"
+    "Password": "كلمه السر",
+
+    "moroccoCallCenter": "المغرب مركز الاتصال",
+    "denmarkCallCenter": "مركز اتصال الدنمارك"
 }

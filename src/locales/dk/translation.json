@@ -31,5 +31,8 @@
     "contentNames.geolocation": "Offline kortstøtte",
 
     "Username": "Brugernavn",
-    "Password": "Adgangskode"
+    "Password": "Adgangskode",
+
+    "moroccoCallCenter": "Marokko Call Center",
+    "denmarkCallCenter": "Danmark Call Center"
 }

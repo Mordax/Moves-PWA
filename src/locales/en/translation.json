@@ -31,5 +31,9 @@
     "contentNames.hotel" : "Hotel relocation",
     "contentNames.thing" : "The thing",
     "contentNames.contact" : "Emergency Contact",
-    "contentNames.geolocation": "Offline map support"
+    "contentNames.geolocation": "Offline map support",
+
+
+    "moroccoCallCenter": "Morocco Call Center",
+    "denmarkCallCenter": "Denmark Call Center"
 }

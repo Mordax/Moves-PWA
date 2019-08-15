@@ -128,16 +128,18 @@ class MenuBar extends React.Component {
                 EN
               </button>
             </li> */}
-
-            <li id="emergency-button">
-              <a className="button">
-                <img
-                  src="images/phone-receiver.svg"
-                  alt={t("EmergencyButton")}
-                />
-                EMERGENCY
-              </a>
-            </li>
+            
+            <Link to="/emergency">
+              <li id="emergency-button">
+                <div className="button">
+                  <img
+                    src="images/phone-receiver.svg"
+                    alt={t("EmergencyButton")}
+                  />
+                  EMERGENCY
+                </div>
+              </li>
+            </Link>
 
             <li
               onClick={() => this.collapseAll()}

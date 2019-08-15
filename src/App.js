@@ -55,7 +55,7 @@ class App extends React.Component {
         ))}
         <Route exact path="/geolocation" component={() => <Geolocation />} />
 
-        <Route path="*" render={() => ( <Redirect to="/"/> )}/>
+        <Route render={() => ( <Redirect to="/"/> )}/>
       </Switch>
       <Footer />
       </div>
