@@ -19,7 +19,7 @@ if ('serviceWorker' in navigator) {
     else console.error('Push is not supported');
   });
 }
-const vapidPublicKey = 'BHu0G9M6gwhxw1DTcz6Vc9d7h5SfBOJxhQg33Hctt8z2GFsaIyD_X8JX1ut8LET5_xB2CwwjNrSJiq7EGu-lGAE';
+const vapidPublicKey = 'BOQSx17Hj2IcVAPM3SLtucRRGgqdTt9DnnojOYGjy1SAIs09AjXQPlMjgP5NrOeBFBhX4m3B7kFx8HP28MOu1EU';
 const API_URL = "https://push-service-moves-a.herokuapp.com/api";
 function subscribeToPush() {
       navigator.serviceWorker.ready.then(
