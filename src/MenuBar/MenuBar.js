@@ -10,7 +10,6 @@ class MenuBar extends React.Component {
     super(props);
     this.dataManager = this.props.manager;
     this.removeToken = this.dataManager.removeToken.bind(this);
-    // this.client = client;
     this.getCurrentLanguageAndFlag = this.getCurrentLanguageAndFlag.bind(this);
   }
 
@@ -24,9 +23,6 @@ class MenuBar extends React.Component {
     //select a mobile-meniu and show it
     let y = document.getElementById("mobile-menu");
     y.classList.toggle("show");
-    //select body and apply overflow : hidden
-    // var body = document.getElementsByTagName("BODY")[0];
-    // body.classList.toggle("mobile-overflow-switch");
   }
 
   showlanguage(x) {
@@ -117,29 +113,6 @@ class MenuBar extends React.Component {
             <h5>{t("Header")}</h5>
           </div>
           <ul className="navigation">
-            {/* <li>
-              {" "}
-              <button
-                id="language-button"
-                className="button"
-                onClick={e => this.showlanguage(e)}
-              >
-                <img src="images/united-kingdom.svg" />
-                EN
-              </button>
-            </li>
-            <li>
-              {" "}
-              <button
-                id="emergency-button"
-                className="button"
-                onClick={e => this.showlanguage(e)}
-              >
-                <img src="images/united-kingdom.svg" />
-                EN
-              </button>
-            </li> */}
-
             {this.dataManager.tokenIsValid() ? (
               <React.Fragment>
                 <li
@@ -255,7 +228,7 @@ class MenuBar extends React.Component {
         </div>
 
         <ul id="mobile-menu">
-          <div className="empty-space" />
+          <div className="empty-space-mobile" />
           <li className="">
             <a
               className="button mobile-language-menu language-button"
@@ -296,7 +269,7 @@ class MenuBar extends React.Component {
                 <Link to="/alerts"> {t("Alerts")}</Link>
               </li>
 
-              <li className="wide-item navigation-item">
+              <li className="">
                 <Link to="" onClick={this.removeToken}>
                   {t("Log out")}
                 </Link>

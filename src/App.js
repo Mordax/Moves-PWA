@@ -10,7 +10,6 @@ import Emergency from "./Emergency/Emergency.js";
 import People from "./People/People.js";
 import Alert from "./Alert/Alert.js";
 import Login from "./Login/Login.js";
-import Geolocation from "./Geolocation";
 
 import Content from './content.json';
 
@@ -33,11 +32,13 @@ import Content from './content.json';
  * to style conflicts and dependency. All foreign components has been modified
  * to fit our own styles.
  */
+import Geolocation from "./GeoLocation/Geolocation";
 
 class App extends React.Component {
 
   constructor(props){
     super(props);
+    // DataManager is passed into components to be used for saving/fetching from indexedDB, localStorage and backend API
     this.dataManager = require("./dataManager")()
   }
 
@@ -58,40 +59,44 @@ class App extends React.Component {
         <Route exact path="/about" component={() => <GenericContent normal={{slug: 'about', content: '/api/content/slug/about'}}/>} />
         <Route exact path="/contact" component={() => <GenericContent normal={{slug: 'contactus', content: '/api/content/slug/contactus'}}/>} />
 
-        {/* Redirect with state is used to keep user at their desired route after log in */}
+        {/* Redirect with state is used to keep user at their desired route after log in 
+          These are protected routes and should ONLY render if a valid token is valid, else redirect them to the login page*/}
         <Route exact path="/emergency" component={() => this.dataManager.tokenIsValid() ? <Emergency /> : <Redirect
           to={{
             pathname: "/login",
-            state: { referrer: '/emergency' }
+            state: { referrer: '/emergency' } // Reference route, used to return back to this page
           }}
         />} />
         <Route exact path="/people" component={() => this.dataManager.tokenIsValid() ? <People manager={this.dataManager}/> : <Redirect
           to={{
             pathname: "/login",
-            state: { referrer: '/people' }
+            state: { referrer: '/people' } // Reference route, used to return back to this page
           }}
         />} />
         <Route exact path="/alerts" component={() => this.dataManager.tokenIsValid() ? <Alert /> : <Redirect
           to={{
             pathname: "/login",
-            state: { referrer: '/alerts' }
+            state: { referrer: '/alerts' } // Reference route, used to return back to this page
           }}
         />} />
         <Route exact path ="/login" render = {()=> ( 
           this.dataManager.tokenIsValid() ? <Redirect to="/"/> :  <Login manager={this.dataManager} history={this.props.history}/>
         )}/>
 
-        {/* All individual content pages are configured in content.json, it can be modified to open all */}
-        {Content.map((r, k) => (
+        {/* All individual content pages are configured in content.json, it can be modified to open all
+          Map every object in content array to a Route tag and pass in the value as a parameter*/}
+        {Content.map((value, index) => (
           <Route
             exact
-            path={"/content/" + r.slug}
-            component={() => <GenericContent params={r} />}
-            key={k}
+            path={"/content/" + value.slug}
+            component={() => <GenericContent params={value} />}
+            key={index}
           />
         ))}
+
         <Route exact path="/geolocation" component={() => <Geolocation />} />
 
+        {/* Catch all unrecognized routes and redirect to home page*/}
         <Route render={() => ( <Redirect to="/"/> )}/>
       </Switch>
       <Footer />

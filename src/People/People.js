@@ -1,16 +1,6 @@
 import React from 'react';
 import "./People.css"
 
-function PeopleItem(props) {
-  return (
-  <div className="peopleItem">
-    <h4>{props.person.familyName}, {props.person.givenName}</h4>
-    <p>{props.person.jobTitle}</p>
-    <p><a href={`tel:${props.person.phoneMobile}`}>{props.person.phoneMobile}</a></p>
-  </div>
-  );
-}  
-
 class People extends React.Component {
 
   constructor(props) {
@@ -29,39 +19,22 @@ class People extends React.Component {
   render() {
     return (
       <div>
-        {
-          // temporary just for testing
+        { // If people array is defined, return a div for every item in the array
           this.state.people ?
-            // <table>
-            //   <tbody>
-            //     <tr>
-            //       <th>First Name</th>
-            //       <th>Last Name</th>
-            //       <th>Job Title</th>
-            //       <th>Contact Number</th>
-            //     </tr>
-            //     {
-            //       this.state.people.map((person, index) => {
-            //         return (
-            //           <tr key={index}>
-            //             <td>{person.givenName}</td>
-            //             <td>{person.familyName}</td>
-            //             <td>{person.jobTitle}</td>
-            //             <td>{person.phoneMobile}</td>
-            //           </tr>
-            //         )
-            //       })
-            //     }
-            //   </tbody>
-            // </table>
             <React.Fragment>
-              {
+              { // Return a div displaying details for every person in the people array
                 this.state.people.map((person, index) => {
-                  return (<PeopleItem person={person} key={index}/>)
+                  return (
+                    <div key={index} className="peopleItem">
+                      <h4>{person.familyName}, {person.givenName}</h4>
+                      <p>{person.jobTitle}</p>
+                      <p><a href={`tel:${person.phoneMobile}`}>{person.phoneMobile}</a></p>
+                    </div>
+                  )
                 })
               }
             </React.Fragment>
-            : <></>
+            : <></> // Else return an empty tag
         }
       </div>
     )
