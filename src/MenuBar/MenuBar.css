@@ -64,7 +64,7 @@
   height: 100px;
 }
 
-#language-button {
+.language-button {
   width: 40px;
   cursor: pointer;
   display: flex;

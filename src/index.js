@@ -20,7 +20,7 @@ if ('serviceWorker' in navigator) {
   });
 }
 const vapidPublicKey = 'BHu0G9M6gwhxw1DTcz6Vc9d7h5SfBOJxhQg33Hctt8z2GFsaIyD_X8JX1ut8LET5_xB2CwwjNrSJiq7EGu-lGAE';
-const API_URL = "https://push-server-moves-a.herokuapp.com/api";
+const API_URL = "https://push-service-moves-a.herokuapp.com/api";
 function subscribeToPush() {
       navigator.serviceWorker.ready.then(
           function (serviceWorkerRegistration) {
@@ -34,7 +34,7 @@ function subscribeToPush() {
               // This method will create the subscription (or retrive an existing one)
               serviceWorkerRegistration.pushManager.subscribe(options).then(
                   function (pushSubscription) { // And this callback will get the subscription
-                      console.log(pushSubscription);
+                      
                       fetch(`${API_URL}/subscribe`, { // And now we can send it to our server.
                           method: 'post',
                           headers: {

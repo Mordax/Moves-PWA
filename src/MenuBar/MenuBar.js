@@ -99,14 +99,14 @@ class MenuBar extends React.Component {
     return (
       <>
         <div className="menu-wrapper">
-          <li className="Mlogo-wrapper" onClick={() => this.collapseAll()}>
+          <div className="Mlogo-wrapper" onClick={() => this.collapseAll()}>
             <Link to="/">
               {" "}
               <h1 className="green Mlogo">
                 Moves<span>:</span>
               </h1>
             </Link>
-          </li>
+          </div>
 
           <div className="MOVES-LOGO">
             <Link to="/" aria-label="Home">
@@ -193,8 +193,8 @@ class MenuBar extends React.Component {
 
             <li className=" navigation-item">
               <a
-                className="button "
-                id="language-button"
+                className="button language-button"
+                id={`lb-${i18next.language}`}
                 onClick={e => this.showlanguage(e)}
               >
                 {this.getCurrentLanguageAndFlag()}
@@ -202,8 +202,8 @@ class MenuBar extends React.Component {
             </li>
 
             <Link to="/emergency">
-              <li id="emergency-button">
-                <a className="button">EMERGENCY CALL</a>
+              <li id="emergency-button button">
+                EMERGENCY CALL
               </li>
             </Link>
             {/** This li is for the 3 bar menu toggle button */}
@@ -225,8 +225,8 @@ class MenuBar extends React.Component {
           <div className="empty-space" />
           <li className="">
             <a
-              className="button mobile-language-menu"
-              id="language-button"
+              className="button mobile-language-menu language-button"
+              // id="language-button"
               onClick={e => this.showlanguage(e)}
             >
               {this.getCurrentLanguageAndFlag()}
