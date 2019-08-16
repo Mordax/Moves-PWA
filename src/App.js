@@ -10,10 +10,29 @@ import Emergency from "./Emergency/Emergency.js";
 import People from "./People/People.js";
 import Alert from "./Alert/Alert.js";
 import Login from "./Login/Login.js";
-
-import Content from './content.json';
 import Geolocation from "./Geolocation";
 
+import Content from './content.json';
+
+/**
+ * All parts of UI have been broken down into different components
+ * 
+ * The GenericContent component is responsible in rendering all the individual
+ * content pages, and all other contents that is to be rendered in the
+ * center such as Help, About Us, Further Information and Contact Us
+ * 
+ * In add routing and rendering all content pages will be done thru the
+ * configuration file named "content.json". "content.json" contains an array
+ * of objects that include the "slug", path to get content from database, path
+ * to locally cached icon, and full name and title. Thus each object can be 
+ * rendered on the home page as square cells, and content to be fetched when
+ * the content page is to be rendered individually.
+ * 
+ * The Emergency, People, Alert and Geolocation components has been fetched
+ * from other teams. They do not behave the same as on other team's UI due
+ * to style conflicts and dependency. All foreign components has been modified
+ * to fit our own styles.
+ */
 
 class App extends React.Component {
 
@@ -39,6 +58,7 @@ class App extends React.Component {
         <Route exact path="/about" component={() => <GenericContent normal={{slug: 'about', content: '/api/content/slug/about'}}/>} />
         <Route exact path="/contact" component={() => <GenericContent normal={{slug: 'contactus', content: '/api/content/slug/contactus'}}/>} />
 
+        {/* Redirect with state is used to keep user at their desired route after log in */}
         <Route exact path="/emergency" component={() => this.dataManager.tokenIsValid() ? <Emergency /> : <Redirect
           to={{
             pathname: "/login",
@@ -61,6 +81,7 @@ class App extends React.Component {
           this.dataManager.tokenIsValid() ? <Redirect to="/"/> :  <Login manager={this.dataManager} history={this.props.history}/>
         )}/>
 
+        {/* All individual content pages are configured in content.json, it can be modified to open all */}
         {Content.map((r, k) => (
           <Route
             exact
