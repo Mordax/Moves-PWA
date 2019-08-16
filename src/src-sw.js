@@ -1,17 +1,26 @@
 
+// The following two lines are added for "workbox injectManifest" to work
+// injectManifest requires a precacheAndRoute placeholder to accept the
+// auto-generated precache-manifest array of static files to be cached
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 workbox.precaching.precacheAndRoute([]);
 
+// Added to skip waiting registration for service worker updates
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
 });
 
-
+// All non-protected information are cached at installation stage so that
+// users can have all static content cached before visiting the individual pages.
+// Enable offline content switching without needing user to view all pages
+// to cache them
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open('runtime').then(function(cache) {
+      // This static array can be generated based on local content.json
+      // which holds names and access routes for all contents
       return cache.addAll(
         [
           "https://moves-backend-a.herokuapp.com/api/content/slug/legal",
@@ -28,6 +37,17 @@ self.addEventListener('install', (event) => {
   )
 });
 
+/**
+ * The following four registerRoute are runtime caches of all content routes,
+ * including non-protected content routes, and protected annoucement and personnel
+ * routes. The phone number routes is integrated from Emergency Contact team,
+ * 
+ * Using StaleWhileRevalidate built-in strategy will allow the routes being
+ * cached first then udpate from network if there are new contents at these
+ * routes. The requests will be forwarded from app made requests to the caches,
+ * the headers will forwarded as well so unauthorized requests will behave the
+ * same as if they are online
+ */
 // Runtime cache all contents
 workbox.routing.registerRoute(
     new RegExp('https://moves-backend-a.herokuapp.com/api/content/slug/*'),
@@ -60,6 +80,9 @@ workbox.routing.registerRoute(
   })
 );
 
+/**
+ * The push and notificationclick listeners are provided by Guest speaker 
+ */
 self.addEventListener('push', function (event) {
     const data = event.data.json();
     console.log("Getting push data", data);

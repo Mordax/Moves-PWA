@@ -2,7 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   border: 0.2px white solid;
-
+  -webkit-box-shadow: 10px 10px 44px -1px rgba(0, 0, 0, 0.13);
+  -moz-box-shadow: 10px 10px 44px -1px rgba(0, 0, 0, 0.13);
+  box-shadow: 10px 10px 44px -1px rgba(0, 0, 0, 0.13);
   overflow: hidden;
 
   padding: -1px;
