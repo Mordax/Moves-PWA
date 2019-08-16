@@ -228,7 +228,7 @@ class MenuBar extends React.Component {
         </div>
 
         <ul id="mobile-menu">
-          <div className="empty-space" />
+          <div className="empty-space-mobile" />
           <li className="">
             <a
               className="button mobile-language-menu language-button"
@@ -269,7 +269,7 @@ class MenuBar extends React.Component {
                 <Link to="/alerts"> {t("Alerts")}</Link>
               </li>
 
-              <li className="wide-item navigation-item">
+              <li className="">
                 <Link to="" onClick={this.removeToken}>
                   {t("Log out")}
                 </Link>
