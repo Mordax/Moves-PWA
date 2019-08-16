@@ -22,7 +22,7 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("images/view.webp");
+    background-image: url("images/view.png");
     background-repeat: no-repeat;
     background-size: cover;
   }

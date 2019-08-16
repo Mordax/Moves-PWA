@@ -38,12 +38,12 @@ class Emergency extends Component {
                 <div className="row">
                     <div className="col-md-6">
                         <a href={`tel:${this.state.maCallCenter}`}>
-                            <MenuItem buttonType="warning" image="/images/em-morocco.webp" title={t('moroccoCallCenter')} subtitle={this.state.maCallCenter} />
+                            <MenuItem buttonType="warning" image="/images/em-morocco.png" title={t('moroccoCallCenter')} subtitle={this.state.maCallCenter} />
                         </a>
                     </div>
                     <div className="col-md-6">
                         <a href={`tel:${this.state.dkCallCenter}`}>
-                            <MenuItem buttonType="danger" image="/images/em-denmark.webp" title={t('denmarkCallCenter')} subtitle={this.state.dkCallCenter} />
+                            <MenuItem buttonType="danger" image="/images/em-denmark.png" title={t('denmarkCallCenter')} subtitle={this.state.dkCallCenter} />
                         </a>
                     </div>
                 </div>

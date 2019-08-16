@@ -49,11 +49,7 @@ class App extends React.Component {
       <Menubar manager={this.dataManager}/>
 
       <Switch>
-        <Route
-          exact
-          path="/"
-          component={() => <CellContainer content={Content} />}
-        />
+        <Route exact path="/" component={() => <CellContainer content={Content} />}/>
         <Route exact path="/help" component={() => <GenericContent normal={{slug: 'help', content: '/api/content/slug/help'}}/>} />
         <Route exact path="/information" component={() => <GenericContent normal={{slug: 'information', content: '/api/content/slug/information'}}/>} />
         <Route exact path="/about" component={() => <GenericContent normal={{slug: 'about', content: '/api/content/slug/about'}}/>} />

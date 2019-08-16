@@ -32,11 +32,13 @@ class CellContainer extends React.Component {
             </div>
           );
         })}
+        
         <div className="square">
           <Link to={'/geolocation'} className="content">
-            <Cell params={{"slug": "geolocation", "icon": "/images/contact.webp"}} />
+            <Cell params={{"slug": "geolocation", "icon": "/images/geoLocations.webp"}} />
           </Link>
         </div>
+        
       </div>
     );
   }

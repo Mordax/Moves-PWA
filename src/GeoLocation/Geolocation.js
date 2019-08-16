@@ -10,9 +10,9 @@ class Geolocation extends Component {
     return (
       <div className="containerTOM">
         <a className="btn btn-default" target="_blank" rel="noopener noreferrer" href={`https://www.google.com/maps/`} >Find Yourself</a>
-        <div class="container">
+        <div className="container">
           <h4>List of important places</h4>
-          <table class="table table-striped">
+          <table className="table table-striped">
             <thead>
               <tr>
                 <th></th>
@@ -25,7 +25,7 @@ class Geolocation extends Component {
                 locationContent.map((value, index)=> {
                   return (
                     <tr key={index}>
-                      <td><a class="btn btn-default" target="_blank" rel="noopener noreferrer" href={value.href} > View on Map </a> &nbsp;&nbsp; </td>
+                      <td><a className="btn btn-default" target="_blank" rel="noopener noreferrer" href={value.href} > View on Map </a> &nbsp;&nbsp; </td>
                       <td>{value.name}</td>
                       <td>{value.address}</td>
                     </tr>
