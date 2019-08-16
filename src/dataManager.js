@@ -43,7 +43,7 @@ module.exports = function(){
         getAllPersonnel(){
             let token = localStorage.getItem("token")
             if(token){
-                 return fetch(baseUrl + "personnel", {
+                 return fetch(baseUrl + "personnel/", {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
