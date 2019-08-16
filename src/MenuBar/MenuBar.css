@@ -8,6 +8,10 @@
   text-decoration: none;
 }
 
+.post-content {
+  margin: 10%;
+}
+
 .MOVES-LOGO h5 {
   font-weight: 100;
   margin: 0;

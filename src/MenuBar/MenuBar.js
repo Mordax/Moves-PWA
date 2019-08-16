@@ -103,7 +103,7 @@ class MenuBar extends React.Component {
             <Link to="/">
               {" "}
               <h1 className="green Mlogo">
-                Moves<span>:</span>
+                MOV<span>:</span>ES
               </h1>
             </Link>
           </div>
@@ -165,7 +165,7 @@ class MenuBar extends React.Component {
 
                 <li>
                   <Link
-                    className="wide-item navigation-item"
+                    className=" navigation-item wide-item"
                     to=""
                     onClick={this.removeToken}
                   >
@@ -296,8 +296,8 @@ class MenuBar extends React.Component {
                 <Link to="/alerts"> {t("Alerts")}</Link>
               </li>
 
-              <li>
-                <Link className="wide-item" to="" onClick={this.removeToken}>
+              <li className="wide-item navigation-item">
+                <Link to="" onClick={this.removeToken}>
                   {t("Log out")}
                 </Link>
               </li>
