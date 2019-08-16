@@ -296,7 +296,7 @@ class MenuBar extends React.Component {
                 <Link to="/alerts"> {t("Alerts")}</Link>
               </li>
 
-              <li className="wide-item navigation-item">
+              <li className="">
                 <Link to="" onClick={this.removeToken}>
                   {t("Log out")}
                 </Link>
