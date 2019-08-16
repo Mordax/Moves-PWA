@@ -43,7 +43,7 @@
   flex-basis: 60%;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+
   justify-content: flex-end;
   list-style: none;
   padding: 0;
@@ -73,7 +73,7 @@
 
 #emergency-button {
   padding: 5px;
-
+  color: #28a745;
   border-radius: 5px;
   cursor: pointer;
 }

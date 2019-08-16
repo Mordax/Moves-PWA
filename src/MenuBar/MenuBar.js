@@ -140,14 +140,47 @@ class MenuBar extends React.Component {
               </button>
             </li> */}
 
-            <li
-              onClick={() => this.collapseAll()}
-              className="navigation-item wide-item"
-            >
-              <Link to="/" aria-label="Home">
-                {t("Home")}
-              </Link>
-            </li>
+            {this.dataManager.tokenIsValid() ? (
+              <React.Fragment>
+                <li
+                  onClick={() => this.collapseAll()}
+                  className="navigation-item wide-item"
+                >
+                  <Link to="/emergency"> {t("Emergency")}</Link>
+                </li>
+
+                <li
+                  onClick={() => this.collapseAll()}
+                  className="navigation-item wide-item"
+                >
+                  <Link to="/people"> {t("People")}</Link>
+                </li>
+
+                <li
+                  onClick={() => this.collapseAll()}
+                  className="navigation-item wide-item"
+                >
+                  <Link to="/alerts"> {t("Alerts")}</Link>
+                </li>
+
+                <li>
+                  <Link
+                    className="wide-item navigation-item"
+                    to=""
+                    onClick={this.removeToken}
+                  >
+                    {t("Log out")}
+                  </Link>
+                </li>
+              </React.Fragment>
+            ) : (
+              <li
+                className="navigation-item wide-item"
+                onClick={() => this.collapseAll()}
+              >
+                <Link to="/login">{t("Log in")}</Link>
+              </li>
+            )}
 
             <li
               onClick={() => this.collapseAll()}
@@ -202,7 +235,7 @@ class MenuBar extends React.Component {
             </li>
 
             <Link to="/emergency">
-              <li id="emergency-button button">
+              <li id="emergency-button" className="button">
                 EMERGENCY CALL
               </li>
             </Link>
@@ -232,7 +265,7 @@ class MenuBar extends React.Component {
               {this.getCurrentLanguageAndFlag()}
             </a>
           </li>
-          
+
           <li onClick={() => this.collapseAll()}>
             <Link to="/information">{t("Information")} </Link>
           </li>
