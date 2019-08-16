@@ -118,7 +118,7 @@ button:active {
 }
 
 .Mlogo {
-  font-size: 35px;
+  font-size: 25px;
   font-family: Playfair Display, serif;
   margin: 0;
 }
@@ -238,6 +238,10 @@ button:active {
   /* color: black; */
   margin: 0;
   transition: 1s;
+}
+
+.empty-space-mobile {
+  height: 40px;
 }
 
 #mobile-menu li {

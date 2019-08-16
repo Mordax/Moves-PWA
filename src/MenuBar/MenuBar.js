@@ -255,7 +255,7 @@ class MenuBar extends React.Component {
         </div>
 
         <ul id="mobile-menu">
-          <div className="empty-space" />
+          <div className="empty-space-mobile" />
           <li className="">
             <a
               className="button mobile-language-menu language-button"
