@@ -64,7 +64,7 @@ class GenericContent extends Component {
   render() {
     const markup = this.state._markup;
     return(
-      <div className="post-content" dangerouslySetInnerHTML={{__html: markup}} />
+      <div className={`post-content`} dir={i18n.language === 'ar' ? 'rtl' : 'ltr'} lang={i18n.language} dangerouslySetInnerHTML={{__html: markup}} />
     )
   }
 }
