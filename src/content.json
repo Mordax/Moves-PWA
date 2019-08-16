@@ -4,7 +4,7 @@
     	"slug": "legal",
     	"fullName": "Laws and traditions",
       "title": "Laws, by-laws and traditions",
-      "icon": "/images/faq.png",
+      "icon": "/images/faq.webp",
       "content": "/api/content/slug/legal"
     },
     {
@@ -12,7 +12,7 @@
       "slug": "importantPlace",
       "fullName": "Important places",
       "title": "Hospitals police stations and stuff",
-      "icon": "/images/medicine.png",
+      "icon": "/images/medicine.webp",
       "content": "/api/content/slug/importantPlace"
     },
     {
@@ -20,7 +20,7 @@
       "slug": "hotel",
       "fullName": "Hotel relocation",
       "title": "Get a new hotel",
-      "icon": "/images/people.png",
+      "icon": "/images/people.webp",
       "content": "/api/content/slug/hotel"
     },
     {
@@ -28,7 +28,7 @@
       "slug": "thing",
       "fullName": "The thing",
       "title": "Beware of the thing",
-      "icon": "/images/libra.png",
+      "icon": "/images/libra.webp",
       "content": "/api/content/slug/thing"
     },
     {
@@ -36,7 +36,7 @@
       "slug": "contact",
       "fullName": "Emergency Contact",
       "title": "Get your emergency contact",
-      "icon": "/images/safety.png",
+      "icon": "/images/safety.webp",
       "content": "/api/content/slug/emergency"
     }
     

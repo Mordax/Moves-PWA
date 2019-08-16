@@ -34,7 +34,7 @@ class CellContainer extends React.Component {
         })}
         <div className="square">
           <Link to={'/geolocation'} className="content">
-            <Cell params={{"slug": "geolocation", "icon": "/images/contact.png"}} />
+            <Cell params={{"slug": "geolocation", "icon": "/images/contact.webp"}} />
           </Link>
         </div>
       </div>
