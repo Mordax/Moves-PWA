@@ -1,0 +1,32 @@
+[
+    {
+        "href": "https://www.google.com/maps/search/City-Sleep In (Hostel in Aarhus)/@56.1551956,10.2121883,18z/",
+        "name": "City-Sleep In",
+        "address": "Havnegade 20, 8000 Aarhus, Denmark"
+    },
+    {
+        "href": "https://www.google.com/maps/search/Clinique Assalam(Hospital)/@35.7700194,-5.809536,18z/",
+        "name": "Clinique Assalam(Hospital)",
+        "address": "Avenue d'Espagne, Tanger 90060, Morocco"
+    },
+    {
+        "href": "https://www.google.com/maps/search/Police poste Castilla/@35.7672859,-5.8153725,18z/",
+        "name": "Police poste Castilla",
+        "address": "Place du Maroc, Tanger 90060, Morocco"
+    },
+    {
+        "href": "https://www.google.com/maps/search/Tanger City Mall/@35.7735013,-5.7870483,18z/",
+        "name": "Tanger City Mall",
+        "address": "Route Tanja El Balia, Tanger, Morocco"
+    },
+    {
+        "href": "https://www.google.com/maps/search/Tanger Ville Railway Station/@35.7715294,-5.7859866,18z/",
+        "name": "Tanger Ville Railway Station",
+        "address": "Tangier 90000, Morocco"
+    },
+    {
+        "href": "https://www.google.com/maps/search/Tangier Ibn Battuta Airport/@35.7265955,-5.9150683,18z/",
+        "name": "Tangier Ibn Battuta Airport",
+        "address": "Aéroport Tanger-Ibn Batouta, Tanger, Morocco"
+    }
+]
