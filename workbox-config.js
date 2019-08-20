@@ -1,3 +1,4 @@
+// Configuration used by "workbox injectManifest" -- current build script
 module.exports = {
   globDirectory: "build/",
   globPatterns: ["**/*.{json,png,webp,ico,html,js,css,svg}"],
